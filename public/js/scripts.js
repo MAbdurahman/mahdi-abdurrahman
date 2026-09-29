@@ -1,6 +1,16 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
+   /*===============================================================
+       preloader
+==================================================================*/
+   // makes sure that whole site is loaded
+   $('#preloader__gif, #preloader').fadeOut(2500, function () {
+
+   });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
    console.log('DOMContentLoaded has loaded!');
 
 
