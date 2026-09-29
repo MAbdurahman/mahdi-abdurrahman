@@ -22,6 +22,7 @@
 }
 
 :root {
+
    /************************* fonts *************************/
    --font-body: 'Montserrat', sans-serif;
    --font-heading: 'Lora', serif;
@@ -57,38 +58,38 @@
    --font-weight-black: 900;
    /************************* colors *************************/
    --color-primary-000: hsl(210, 77%, 95%);
-   --color-primary-100: hsl(210, 77%, 90%);
-   --color-primary-200: hsl(210, 77%, 80%);
-   --color-primary-300: hsl(210, 77%, 75%);
-   --color-primary-400: hsl(210, 77%, 70%);
-   --color-primary-500: hsl(211, 61%, 40%);
-   --color-primary-600: hsl(210, 77%, 55%);
-   --color-primary-700: hsl(211, 64%, 23%);
-   --color-primary-800: hsl(210, 77%, 45%);
-   --color-primary-900: hsl(211, 73%, 19%);
+   --color-primary-100: hsl(210, 41.9%, 87.8%);
+   --color-primary-200: hsl(209, 40.8%, 75.5%);
+   --color-primary-300: hsl(210, 40.9%, 63.5%);
+   --color-primary-400: hsl(210, 40.6%, 51.2%);
+   --color-primary-500: hsl(210, 63.8%, 39%);
+   --color-primary-600: hsl(210, 63.5%, 31.2%);
+   --color-primary-700: hsl(210, 63.3%, 23.5%);
+   --color-primary-800: hsl(210, 64.6%, 15.5%);
+   --color-primary-900: hsl(210, 65%, 7.8%);
    /* neutral colors */
-   --color-neutral-000: hsl(277, 0%, 98%);
-   --color-neutral-100: hsl(277, 0%, 88%);
-   --color-neutral-200: hsl(277, 0%, 78%);
-   --color-neutral-300: hsl(277, 0%, 68%);
-   --color-neutral-400: hsl(277, 0%, 58%);
-   --color-neutral-500: hsl(277, 0%, 48%);
-   --color-neutral-600: hsl(277, 0%, 38%);
-   --color-neutral-700: hsl(277, 0%, 28%);
-   --color-neutral-800: hsl(277, 0%, 18%);
-   --color-neutral-900: hsl(277, 0%, 10%);
+   --color-neutral-000: hsl(210, 0%, 98%);
+   --color-neutral-100: hsl(210, 0%, 88%);
+   --color-neutral-200: hsl(210, 0%, 78%);
+   --color-neutral-300: hsl(210, 0%, 68%);
+   --color-neutral-400: hsl(210, 0%, 58%);
+   --color-neutral-500: hsl(210, 0%, 48%);
+   --color-neutral-600: hsl(210, 0%, 38%);
+   --color-neutral-700: hsl(210, 0%, 28%);
+   --color-neutral-800: hsl(210, 0%, 18%);
+   --color-neutral-900: hsl(210, 0%, 10%);
    --color-neutral-900a: #1a1a1a;
    /* augmented colors */
-   --color-augmented-000: hsl(277, 12%, 95%);
-   --color-augmented-100: hsl(277, 12%, 85%);
-   --color-augmented-200: hsl(277, 12%, 75%);
-   --color-augmented-300: hsl(277, 15%, 65%);
-   --color-augmented-400: hsl(277, 15%, 55%);
-   --color-augmented-500: hsl(277, 15%, 45%);
-   --color-augmented-600: hsl(277, 15%, 35%);
-   --color-augmented-700: hsl(277, 20%, 25%);
-   --color-augmented-800: hsl(277, 25%, 15%);
-   --color-augmented-900: hsl(277, 30%, 15%);
+   --color-augmented-000: hsl(210, 12%, 95%);
+   --color-augmented-100: hsl(210, 12%, 85%);
+   --color-augmented-200: hsl(210, 12%, 75%);
+   --color-augmented-300: hsl(210, 15%, 65%);
+   --color-augmented-400: hsl(210, 15%, 55%);
+   --color-augmented-500: hsl(210, 15%, 45%);
+   --color-augmented-600: hsl(210, 15%, 35%);
+   --color-augmented-700: hsl(210, 20%, 25%);
+   --color-augmented-800: hsl(210, 25%, 15%);
+   --color-augmented-900: hsl(210, 30%, 15%);
    /************************* semantic colors *************************/
    /* semantic inform colors */
    --color-semantic-inform-400: hsl(215, 96%, 33%);
@@ -291,7 +292,7 @@ body {
    -moz-osx-font-smoothing: grayscale;
    line-height: 1.5;
    color: var(--bodyTextColor);
-   background-color: whitesmoke;
+   background-color: var(--color-neutral-000);
 }
 
 /*===============================================================
@@ -299,8 +300,8 @@ body {
 ==================================================================*/
 /*noinspection ALL*/
 h1, h2, h3, h4, h5, h6 {
-   font-family: var(--font-body);
-   font-weight: 700;
+   font-family: var(--font-heading);
+   font-weight: 300;
    font-style: normal;
    font-optical-sizing: auto;
    text-rendering: optimizeLegibility;
@@ -420,18 +421,23 @@ img {
    bottom: 0;
    width: 100vw;
    height: 100vh;
-   z-index: 999;
-   overflow: hidden;
-   display: -webkit-box;
-   display: flex;
-   -webkit-box-align: center;
-   align-items: center;
-   -webkit-box-pack: center;
-   justify-content: center;
+   inset: 0;
+   z-index: 9999;
+   display: grid;
+   place-items: center;
+   background: var(--color-primary-800);
+   opacity: 1;
+   visibility: visible;
    scrollbar-width: none;
    -ms-overflow-style: none;
-   background: var(--color-primary-900);
+   transition: opacity 0.5s ease, visibility 0.5s ease;
+}
 
+/* Applied after the page has loaded */
+.preloader.is-hidden {
+   opacity: 0;
+   visibility: hidden;
+   pointer-events: none;
 }
 
 .preloader-gif {
@@ -440,21 +446,8 @@ img {
 }
 
 /* Extra Small Devices (Landscape Phones & Portrait Tablets) */
-@media (max-width: 767px) {
+@media (max-width: 520px) {
    .preloader-gif {
       width: 50%;
-
-   }
-}
-
-/*===============================================================
-          preloader keyframes
-==================================================================*/
-@keyframes fadeIn {
-   from {
-      opacity: 0;
-   }
-   to {
-      opacity: 1;
    }
 }

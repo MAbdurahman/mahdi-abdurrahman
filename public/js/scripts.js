@@ -1,14 +1,21 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
-   /*===============================================================
-       preloader
+/*===============================================================
+            preloader scripts
 ==================================================================*/
-   // makes sure that whole site is loaded
-   $('#preloader__gif, #preloader').fadeOut(2500, function () {
+window.addEventListener('load', () => {
+   const preloader = document.getElementById('preloader');
 
-   });
+   preloader.classList.add('is-hidden');
+
+   // Optional: remove it from the DOM after its fade-out transition
+   preloader.addEventListener(
+      'transitionend',
+      () => preloader.remove(),
+      { once: true }
+   );
 });
+
 
 document.addEventListener('DOMContentLoaded', () => {
    console.log('DOMContentLoaded has loaded!');
