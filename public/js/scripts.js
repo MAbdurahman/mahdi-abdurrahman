@@ -28,23 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
    const navigationItems = document.querySelectorAll('.navigation-item');
 
 
+   navigationButton.addEventListener('click', toggleNavigation);
 
+   navigationList.addEventListener('click', closeNavigation);
 
-
-
-
-
-   navigationButton.addEventListener('click', () => {
-      toggleNavigation();
+   navigationBackground.addEventListener('click', (event) => {
+      if (event.target === navigationBackground) {
+         closeNavigation();
+      }
    });
 
-   navigationList.addEventListener('click', () => {
-      closeNavigation();
-   });
-
-   navigationBackground.addEventListener('click', () => {
-      closeNavigation();
-   });
 
    navigationItems.forEach(navigationItem => {
       navigationItem.addEventListener('click', () => {
@@ -65,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
       navigationList.classList.remove('active');
       document.body.classList.remove('no-scroll');
    }
-
 
 
 });
