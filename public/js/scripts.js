@@ -23,14 +23,47 @@ document.addEventListener('DOMContentLoaded', () => {
    console.log('DOMContentLoaded loaded for navigation scripts!');
 
    const navigationButton = document.getElementById('navigation-button');
+   const navigationBackground = document.getElementById('navigation-background');
+   const navigationList = document.getElementById('navigation-list');
+   const navigationItems = document.querySelectorAll('.navigation-item');
+
+
+
+
+
+
 
 
    navigationButton.addEventListener('click', () => {
       toggleNavigation();
    });
 
+   navigationList.addEventListener('click', () => {
+      closeNavigation();
+   });
+
+   navigationBackground.addEventListener('click', () => {
+      closeNavigation();
+   });
+
+   navigationItems.forEach(navigationItem => {
+      navigationItem.addEventListener('click', () => {
+         closeNavigation();
+      });
+   });
+
    function toggleNavigation() {
       navigationButton.classList.toggle('active');
+      navigationBackground.classList.toggle('active');
+      navigationList.classList.toggle('active');
+      document.body.classList.toggle('no-scroll');    // lock scrolling
+   }
+
+   function closeNavigation() {
+      navigationButton.classList.remove('active');
+      navigationBackground.classList.remove('active');
+      navigationList.classList.remove('active');
+      document.body.classList.remove('no-scroll');
    }
 
 
