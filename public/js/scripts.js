@@ -16,6 +16,29 @@ window.addEventListener('load', () => {
    );
 });
 
+/*===============================================================
+          navigation and footer navigation
+==================================================================*/
+document.addEventListener('DOMContentLoaded', () => {
+   console.log('DOMContentLoaded loaded for navigation scripts!');
+
+   const navigationButton = document.getElementById('navigation-button');
+
+
+   navigationButton.addEventListener('click', () => {
+      toggleNavigation();
+   });
+
+   function toggleNavigation() {
+      navigationButton.classList.toggle('active');
+   }
+
+
+
+});
+
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
    console.log('DOMContentLoaded has loaded!');
