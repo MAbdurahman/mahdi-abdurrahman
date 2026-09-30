@@ -25,4 +25,6 @@ Clone or Download the repository
 
 ### To build the project, run the following command
 
-`npm run build or yarn build`
+`npm run build or yarn build
+
+#### [Live preview](https://mahdi-abdurrahman.vercel.app/)
