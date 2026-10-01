@@ -819,7 +819,45 @@ img {
    animation-fill-mode: backwards;
 }
 
+.header-content-buttons {
+   z-index: 2;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   animation-name: move-buttons-from-bottom;
+   animation-duration: 2275ms;
+   animation-timing-function: var(--tf-ease);
+   animation-iteration-count: 1;
+   animation-delay: 2000ms;
+   animation-fill-mode: backwards;
+}
 
+.header-button {
+
+}
+
+.header-button:hover,
+.header-button:focus-visible {}
+
+.header-button--arrow {
+   position: relative;
+   bottom: calc((100vh - 80vh)* -1);
+   font-size: 2rem;
+   color: var(--color-primary-200);
+   cursor: pointer;
+   animation-name: bounce-up-and-down;
+   animation-duration: 2s;
+   animation-iteration-count: infinite;
+   transition: color 1s var(--tf-ease-in-out), transform 1s var(--tf-ease-in-out);
+}
+
+.header-button--arrow:hover,
+.header-button--arrow:focus-visible {
+   color: var(--color-primary-000);
+   -webkit-transform: scale(1.2);
+   transform: scale(1.2);
+}
 
 
 
