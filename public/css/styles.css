@@ -267,9 +267,21 @@ html {
    font-size: 100%;
 }
 
+@media screen and (max-width: 540px) {
+   html {
+      font-size: 75%;
+   }
+}
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
    html {
-      font-size: 83.333%;
+      font-size: 62.5%;
+   }
+}
+
+@media only screen and (max-device-width: 320px) {
+   html {
+      font-size: 50%;
    }
 }
 
@@ -701,6 +713,124 @@ img {
 }
 
 /*===============================================================
+          buttons styles
+==================================================================*/
+
+/************************* primary-button styles *************************/
+/*noinspection ALL*/
+button[class^='primary-button'],
+a[class^='primary-button'] {
+   position: relative;
+   min-width: 120px;
+   padding: 16px 32px;
+   font-family: var(--font-body), sans-serif;
+   font-size: 1rem;
+   font-weight: 700;
+   text-transform: capitalize;
+   letter-spacing: 1px;
+   color: var(--color-neutral-100);
+   background: linear-gradient(90deg, var(--color-primary-700) 0%, var(--color-primary-700) 50%, var(--color-primary-900) 50%, var(--color-primary-900) 100%);
+   background-repeat: no-repeat;
+   background-size: 200% 100%;
+   background-position: right bottom;
+   border-radius: 5px;
+   border: 2px solid var(--color-primary-900);
+   cursor: pointer;
+   outline: none;
+   box-shadow: var(--bs-box-shadow-bottom-right-100);
+   transition: background-position 0.25s var(--tf-ease-in-out), color 0.5s var(--tf-ease-in-out);
+}
+
+button[class^='primary-button']:hover,
+button[class^='primary-button']:focus-visible,
+a[class^='primary-button']:hover,
+a[class^='primary-button']:focus-visible {
+   cursor: pointer;
+   color: var(--color-neutral-000);
+}
+
+button[class^='primary-button']:hover,
+a[class^='primary-button']:hover {
+   background-position: left bottom;
+}
+
+/************************ outline-button styles ************************/
+/*noinspection ALL*/
+button[class^='outline-button'],
+a[class^='outline-button'] {
+   position: relative;
+   min-width: 120px;
+   padding: 1em 3em;
+   font-family: var(--font-body);
+   font-size: 1rem;
+   font-weight: 500;
+   text-transform: capitalize;
+   letter-spacing: 1px;
+   color: var(--color-neutral-000);
+   background: linear-gradient(90deg, var(--color-neutral-000) 0%, var(--color-neutral-000) 50%, transparent 50%, transparent 100%);
+   background-repeat: no-repeat;
+   background-size: 200% 100%;
+   background-position: right bottom;
+   border-radius: var(--br-border-radius-200);
+   border: 1px solid var(--color-neutral-000);
+   cursor: pointer;
+   outline: none;
+   box-shadow: var(--bs-box-shadow-bottom-right-100);
+   transition: background-position 0.25s var(--tf-ease-in-out), color 0.5s var(--tf-ease-in-out);
+}
+
+button[class^='outline-button']:hover,
+button[class^='outline-button']:focus-visible,
+a[class^='outline-button']:hover,
+a[class^='outline-button']:focus-visible {
+   cursor: pointer;
+   color: var(--color-primary-800);
+}
+
+button[class^='outline-button']:hover,
+a[class^='outline-button']:hover {
+   background-position: left bottom;
+}
+
+/************************ outline-button--white styles ************************/
+/*noinspection ALL*/
+button[class^='outline-button--white'],
+a[class^='outline-button--white'] {
+   position: relative;
+   min-width: 120px;
+   padding: 1em 3em;
+   font-family: var(--font-body);
+   font-size: 1rem;
+   font-weight: 600;
+   text-transform: capitalize;
+   letter-spacing: 1px;
+   color: var(--color-neutral-000);
+   background: linear-gradient(90deg, var(--color-neutral-000) 0%, var(--color-neutral-000) 50%, transparent 50%, transparent 100%);
+   background-repeat: no-repeat;
+   background-size: 200% 100%;
+   background-position: right bottom;
+   border-radius: var(--br-border-radius-200);
+   border: 1px solid var(--color-neutral-000);
+   cursor: pointer;
+   outline: none;
+   box-shadow: var(--bs-box-shadow-bottom-right-100);
+   transition: background-position 0.25s var(--tf-ease-in-out), color 0.5s var(--tf-ease-in-out);
+}
+
+button[class^='outline-button--white']:hover,
+button[class^='outline-button--white']:focus-visible,
+a[class^='outline-button--white']:hover,
+a[class^='outline-button--white']:focus-visible {
+   cursor: pointer;
+   color: var(--color-primary-800);
+}
+
+button[class^='outline-button--white']:hover,
+a[class^='outline-button--white']:hover {
+   background-position: left bottom;
+}
+
+/*===============================================================
           header styles
 ==================================================================*/
 .header {
@@ -779,6 +909,11 @@ img {
    animation-fill-mode: backwards;
 }
 
+@media screen and (max-width: 480px) {
+   .header-content-heading {
+      margin-bottom: -1.5em;
+   }
+}
 .header-content-heading--one {
    margin-bottom: -0.8em;
    font-size: 3rem;
@@ -794,6 +929,15 @@ img {
    text-transform: uppercase;
    letter-spacing: 1px;
    color: var(--color-primary-000);
+}
+
+@media screen and (max-width: 540px) {
+   .header-content-heading--one {
+      font-size: 2.5rem;
+   }
+   .header-content-heading--two {
+      font-size: 2.5rem;
+   }
 }
 
 .header-content-subheading {
@@ -827,7 +971,11 @@ img {
    animation-delay: 1500ms;
    animation-fill-mode: backwards;
 }
-
+@media screen and (max-width: 540px) {
+   .header-content-subheading--one {
+      font-size: 2rem;
+   }
+}
 .header-content-buttons {
    z-index: 2;
    display: flex;
@@ -842,36 +990,11 @@ img {
    animation-fill-mode: backwards;
 }
 
-/*noinspection ALL*/
-.header-button {
-   position: relative;
-   display: inline-block;
-   padding: 12px 48px;
-   font-family: var(--font-body);
-   font-size: 1.25rem;
-   font-weight: var(--font-weight-semibold);
-   text-transform: uppercase;
-   text-align: center;
-   color: var(--color-neutral-400);
-   background: linear-gradient(90deg, transparent 0%, transparent 50%, transparent 100%);
-   background-size: 200% 100%;
-   background-position: right bottom;
-   border: 2px solid var(--color-neutral-400);
-   border-radius: var(--br-border-radius-200); /* 3px */
-   transition: background-position 0.25s var(--tf-ease-in-out),
-   color 0.25s var(--tf-ease-in-out), border-color 0.25s var(--tf-ease-in-out),
-
-}
-
-.header-button:hover,
-.header-button:focus-visible {
-}
-
 .header-button--arrow {
    position: relative;
    bottom: calc((100vh - 80vh) * -1);
    font-size: 2rem;
-   color: var(--color-primary-200);
+   color: var(--color-primary-000);
    cursor: pointer;
    animation-name: bounce-up-and-down;
    animation-duration: 2s;
@@ -885,7 +1008,6 @@ img {
    -webkit-transform: scale(1.2);
    transform: scale(1.2);
 }
-
 
 /*===============================================================
           header keyframes
