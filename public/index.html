@@ -41,54 +41,55 @@
 <body>
 <!-- preloader -->
 <div class='preloader' id='preloader'>
-    <img src='./img/gifs/preloader.gif' alt='Three spinning clogs' class='preloader-gif' id='preloader-gif'>
+    <img alt='Three spinning clogs' class='preloader-gif'
+         id='preloader-gif' src='./img/gifs/preloader.gif'>
 </div>
 <!-- navigation -->
 <div class='navigation' id='navigation'>
     <div class='navigation-button' id='navigation-button'>
-        <span class="navigation-button-bar"></span>
-        <span class="navigation-button-bar"></span>
-        <span class="navigation-button-bar"></span>
+        <span class='navigation-button-bar'></span>
+        <span class='navigation-button-bar'></span>
+        <span class='navigation-button-bar'></span>
     </div>
     <nav class='navigation-background' id='navigation-background'>
         <div class='navigation-background-inner'>
-            <ul class="navigation-list" id="navigation-list">
-                <li class="navigation-item">
-                    <a class="navigation-link active" href="#home">
-                    <span class="navigation-span">
-                        <i class="fas fa-home"></i>
+            <ul class='navigation-list' id='navigation-list'>
+                <li class='navigation-item'>
+                    <a class='navigation-link active' href='#home'>
+                    <span class='navigation-span'>
+                        <i class='fas fa-home'></i>
                     </span>
                         home
                     </a>
                 </li>
-                <li class="navigation-item">
-                    <a class="navigation-link" href="#about">
-                        <span class="navigation-span">
-                            <i class="fas fa-user-tie"></i>
+                <li class='navigation-item'>
+                    <a class='navigation-link' href='#about'>
+                        <span class='navigation-span'>
+                            <i class='fas fa-user-tie'></i>
                         </span>
                         about me
                     </a>
                 </li>
-                <li class="navigation-item">
-                    <a class="navigation-link" href="#skills">
-                        <span class="navigation-span">
-                            <i class="fas fa-tools"></i>
+                <li class='navigation-item'>
+                    <a class='navigation-link' href='#skills'>
+                        <span class='navigation-span'>
+                            <i class='fas fa-tools'></i>
                         </span>
                         my skills
                     </a>
                 </li>
-                <li class="navigation-item">
-                    <a class="navigation-link" href="#portfolio">
-                        <span class="navigation-span">
-                            <i class="fas fa-images"></i>
+                <li class='navigation-item'>
+                    <a class='navigation-link' href='#portfolio'>
+                        <span class='navigation-span'>
+                            <i class='fas fa-images'></i>
                         </span>
                         portfolio
                     </a>
                 </li>
-                <li class="navigation-item">
-                    <a class="navigation-link" href="#contact">
-                        <span class="navigation-span">
-                            <i class="fas fa-envelope"></i>
+                <li class='navigation-item'>
+                    <a class='navigation-link' href='#contact'>
+                        <span class='navigation-span'>
+                            <i class='fas fa-envelope'></i>
                         </span>
                         contact me
                     </a>
@@ -100,15 +101,15 @@
 <!-- header -->
 <header class='header' id='home'>
     <div class='header-logo-container'>
-        <img src='./img/header/logo.png' alt='Brand Logo' class='header-logo'>
+        <img alt='Brand Logo' class='header-logo' src='./img/header/logo.png'>
     </div>
     <div class='header-video-container'>
-        <video class='header-video-item' id='header-video-item' autoplay muted loop poster='./videos/img/binary-code.jpg'>
-            <source src="./videos/mp4/binary-code.mp4" type="video/mp4">
-            <source src="./videos/ogv/binary-code.ogv" type="video/ogv">
-            <source src="./videos/webm/binary-code.webm" type="video/webm">
+        <video class="header-video-item" autoplay muted loop playsinline preload="metadata"
+               poster="./videos/img/binary-code.jpg">
+            <source src="./videos/mp4/binary-code-24fps.mp4" type="video/mp4">
             Your browser does not support the video tag!
         </video>
+        <div class='header-video-image'></div>
         <div class='header-video-overlay'></div>
     </div>
     <div class='header-content'>
@@ -117,18 +118,21 @@
             <h1 class='header-content-heading--two'>Abdurrahman</h1>
         </div>
         <div class='header-content-subheading'>
-            <h2 class='header-content-subheading--one'>Software and Web Developer</h2>
+            <h2 class='header-content-subheading--one'>Software and Web
+                Developer</h2>
         </div>
         <div class='header-content-buttons'>
-            <a href='#about' class='outline-button--white' id='header-button' role='button'>View More</a>
-            <a href='#about' class='header-button--arrow' id='header-down-arrow'>
+            <a class='outline-button--white' href='#about' id='header-button'
+               role='button'>View More</a>
+            <a class='header-button--arrow' href='#about' id='header-down-arrow'
+               role='button'>
                 <i class='fa fa-chevron-down'></i>
             </a>
         </div>
     </div>
-    
+
 </header>
-<!--<main>
+<main>
     <h1>Let’s work together</h1>
     
     <form id="contact-form">
@@ -151,7 +155,7 @@
         <p id="form-status"></p>
     </form>
 
-</main>-->
+</main>
 
 </body>
 </html>

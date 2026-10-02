@@ -836,6 +836,7 @@ a[class^='outline-button--white']:hover {
 .header {
    position: relative;
    min-height: 100vh;
+   overflow: hidden;
    display: -webkit-box;
    display: flex;
    -webkit-box-align: center;
@@ -862,29 +863,47 @@ a[class^='outline-button--white']:hover {
    position: absolute;
    top: 0;
    left: 0;
-   width: 100vw;
-   height: 100vh;
    z-index: -1;
+   width: 100%;
+   height: 100%;
 }
 
 .header-video-item {
+   display: block;
    width: 100%;
    height: 100%;
    object-fit: cover;
+}
+.header-video-image {
+   position: absolute;
+   inset: 0;
+   display: none;
+}
+@media screen and (max-width: 992px) {
+   .header-video-item {
+      display: none;
+   }
+   .header-video-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: url('../videos/img/binary-code.jpg') center / cover no-repeat;
+   }
 }
 
 .header-video-overlay {
    position: absolute;
    top: 0;
    left: 0;
+   z-index: 1;
    width: 100%;
    height: 100%;
    background: var(--color-primary-800);
    opacity: 0.8;
-   z-index: 2;
 }
 
 .header-content {
+   position: relative;
    width: 100%;
    height: 100%;
    display: flex;
@@ -914,6 +933,7 @@ a[class^='outline-button--white']:hover {
       margin-bottom: -1.5em;
    }
 }
+
 .header-content-heading--one {
    margin-bottom: -0.8em;
    font-size: 3rem;
@@ -935,6 +955,7 @@ a[class^='outline-button--white']:hover {
    .header-content-heading--one {
       font-size: 2.5rem;
    }
+
    .header-content-heading--two {
       font-size: 2.5rem;
    }
@@ -971,11 +992,13 @@ a[class^='outline-button--white']:hover {
    animation-delay: 1500ms;
    animation-fill-mode: backwards;
 }
+
 @media screen and (max-width: 540px) {
    .header-content-subheading--one {
       font-size: 2rem;
    }
 }
+
 .header-content-buttons {
    z-index: 2;
    display: flex;
@@ -1008,6 +1031,17 @@ a[class^='outline-button--white']:hover {
    -webkit-transform: scale(1.2);
    transform: scale(1.2);
 }
+
+/*@media screen and (max-width: 768px) {
+   .header {
+      background: url("../videos/img/binary-code.jpg") center / cover no-repeat;
+   }
+
+   .header-video-container {
+      display: none;
+   }
+}*/
+
 
 /*===============================================================
           header keyframes
