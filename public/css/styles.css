@@ -600,6 +600,7 @@ to 100%, max-width property to a pixel value of choice, and height to auto*/
    position: relative;
    width: 100vw;
    min-height: 100vh;
+   padding: 160px 0;
 }
 
 .section--two {
@@ -608,7 +609,7 @@ to 100%, max-width property to a pixel value of choice, and height to auto*/
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   padding: 40px 0;
+   padding: 120px 0;
    background-color: var(--color-augmented-000);
 
 }
@@ -1029,6 +1030,7 @@ a[class^='outline-button--white'] {
    font-size: 1rem;
    font-weight: 600;
    text-transform: capitalize;
+   vertical-align: middle;
    letter-spacing: 1px;
    color: var(--color-primary-000);
    background: linear-gradient(90deg, var(--color-primary-000) 0%, var(--color-primary-000) 50%, transparent 50%, transparent 100%);
@@ -1067,6 +1069,8 @@ a[class^='outline-button--white']:hover {
    display: flex;
    -webkit-box-align: center;
    align-items: center;
+   padding-bottom: 16em;
+
 }
 
 .header-logo-container {
@@ -1352,6 +1356,14 @@ a[class^='outline-button--white']:hover {
    row-gap: 1.5em;
 }
 
+@media screen and (max-width: 767px) {
+   .about-section {
+      margin-bottom: 8em;
+      margin-top: 8em;
+      align-items: center;
+   }
+}
+
 .about-section-title {
    position: relative;
    width: 100%;
@@ -1412,6 +1424,12 @@ a[class^='outline-button--white']:hover {
    font-size: var(--fluid-body-text-p300);
    font-weight: var(--font-weight-normal);
    hyphens: auto;
+}
+
+@media screen and (max-width: 767px) {
+   .about-info-text {
+      font-size: var(--fluid-body-text-p400);
+   }
 }
 
 p.about-info-text:where(:last-of-type) {
