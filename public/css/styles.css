@@ -301,7 +301,7 @@ body {
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
    line-height: 1.5;
-   color: var(--bodyTextColor);
+   color: var(--color-neutral-900);
    background-color: var(--color-neutral-000);
 }
 
@@ -384,6 +384,52 @@ img {
    height: auto;
 }
 
+/* Chrome, Safari, Edge, Opera */
+/*noinspection ALL*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+   font-family: var(--font-monospace);
+}
+
+/* Firefox */
+/*noinspection ALL*/
+input[type=number] {
+   -moz-appearance: textfield;
+   appearance: textfield;
+   font-family: var(--font-monospace);
+}
+
+/*===============================================================
+          scrollbar styles
+==================================================================*/
+/* width */
+::-webkit-scrollbar {
+   width: 3px;
+
+}
+
+/* track */
+::-webkit-scrollbar-track {
+   margin-left: 4px;
+   box-shadow: inset 0 0 5px #bfbfbf;
+   border-radius: 3px;
+
+}
+
+/* handle */
+::-webkit-scrollbar-thumb {
+   background: #d9d9d9;
+   border-radius: 3px;
+}
+
+/* handle on hover */
+::-webkit-scrollbar-thumb:hover {
+   /*background: #616161;*/
+   background: var(--color-primary-700);
+}
+
 /*===============================================================
           utility classes
 ==================================================================*/
@@ -425,6 +471,172 @@ img {
    .utils-container {
       max-width: 1240px;
    }
+}
+
+/*If you want the image to scale both up and down on responsiveness,
+set CSS width property to 100% and height to auto*/
+.utils-img-responsive-up-and-down {
+   width: 100%;
+   height: auto;
+}
+
+/*If you want the image to scale down if it has to, but never scale up
+to be larger than its original size, use CSS max-width property to 100%
+and height to auto*/
+.utils-img-responsive-down {
+   max-width: 100%;
+   height: auto;
+}
+
+/*If you want to restrict the image to a maximum size, set CSS width property
+to 100%, max-width property to a pixel value of choice, and height to auto*/
+.utils-img-responsive-up-to {
+   width: 100%;
+   max-width: 400px;
+   height: auto;
+}
+
+.utils-img-responsive {
+   vertical-align: middle;
+}
+
+.utils-img-thumbnail {
+   display: inline-block;
+   max-width: 100%;
+   height: auto;
+   line-height: 1.42857143;
+   background-color: var(--color-neutral-700);
+   border: 1px solid var(--color-neutral-300);
+   border-radius: var(--br-border-radius-200);
+   -webkit-border-radius: var(--br-border-radius-200);
+
+}
+
+.utils-img-responsive,
+.utils-thumbnail > img,
+.utils-thumbnail a > img {
+   display: block;
+   max-width: 100%;
+   height: auto;
+
+}
+
+.flex-center {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.grid-center {
+   display: grid;
+   place-items: center;
+}
+
+.grid-container {
+   margin: 0 auto;
+   width: 90%;
+   display: grid;
+   row-gap: 3rem;
+   column-gap: 2rem;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-container-12 {
+   margin: 0 auto;
+   width: 90%;
+   display: grid;
+   row-gap: 3rem;
+   column-gap: 2rem;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-column-1 {
+   display: grid;
+   grid-template-columns: repeat(1, minmax(0, 1fr));
+   column-gap: 2rem;
+}
+
+.grid-column-2 {
+   display: grid;
+   grid-template-columns: repeat(2, minmax(0, 1fr));
+   column-gap: 2rem;
+}
+
+.grid-column-3 {
+   display: grid;
+   grid-template-columns: repeat(3, minmax(0, 1fr));
+   column-gap: 2rem;
+}
+
+.grid-column-4 {
+   display: grid;
+   grid-template-columns: repeat(4, minmax(0, 1fr));
+   column-gap: 2rem;
+}
+
+/*===============================================================
+         main and  sections styles
+==================================================================*/
+.main {
+   position: relative;
+   width: 100%;
+   min-height: fit-content;
+   z-index: 3;
+}
+
+.section {
+   position: relative;
+   width: 100vw;
+   min-height: 100vh;
+}
+
+.section--two {
+   scroll-margin-top: 80px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 40px 0;
+   background-color: var(--color-augmented-000);
+
+}
+
+.section--three {
+   scroll-margin-top: 80px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 40px 0;
+   background-color: var(--color-neutral-200);
+}
+
+.section--four {
+   scroll-margin-top: 80px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 40px 0;
+   background-color: var(--color-neutral-100);
+}
+
+.section--five {
+   scroll-margin-top: 80px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 40px 0;
+   background-color: var(--color-augmented-000);
+}
+
+.section--footer {
+   width: 100vw;
+   height: -webkit-fit-content;
+   height: -moz-fit-content;
+   height: fit-content;
+
 }
 
 /*===============================================================
@@ -1032,17 +1244,6 @@ a[class^='outline-button--white']:hover {
    transform: scale(1.2);
 }
 
-/*@media screen and (max-width: 768px) {
-   .header {
-      background: url("../videos/img/binary-code.jpg") center / cover no-repeat;
-   }
-
-   .header-video-container {
-      display: none;
-   }
-}*/
-
-
 /*===============================================================
           header keyframes
 ==================================================================*/
@@ -1123,3 +1324,41 @@ a[class^='outline-button--white']:hover {
       transform: translateX(0);
    }
 }
+
+/*===============================================================
+          about section styles
+==================================================================*/
+.about-section {}
+
+.about-section-title {}
+
+.about-title {}
+
+.about-section-content {}
+
+.about-section-left {}
+
+.about-section-right {}
+
+.about-info-text {}
+
+.about-info-links {}
+
+.about-info-link {}
+
+/*===============================================================
+          skills section styles
+==================================================================*/
+
+/*===============================================================
+           portfolio section styles
+==================================================================*/
+
+/*===============================================================
+            contact section styles
+==================================================================*/
+
+
+/*===============================================================
+            footer section styles
+==================================================================*/

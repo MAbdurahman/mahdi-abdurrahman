@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
    console.log('DOMContentLoaded has loaded!');
 
-
+/*
    const form = document.getElementById("contact-form");
    const status = document.getElementById("form-status");
 
@@ -101,6 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (error) {
          status.textContent = error.message || "Something went wrong.";
       }
-   });
+   });*/
 
 });
