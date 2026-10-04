@@ -987,7 +987,7 @@ button[class^='outline-button'],
 a[class^='outline-button'] {
    position: relative;
    min-width: 120px;
-   padding: 1em 3em;
+   padding: 16px 48px;
    font-family: var(--font-body);
    font-size: 1rem;
    font-weight: var(--font-weight-semibold);
@@ -1069,8 +1069,6 @@ a[class^='outline-button--white']:hover {
    display: flex;
    -webkit-box-align: center;
    align-items: center;
-   padding-bottom: 16em;
-
 }
 
 .header-logo-container {
@@ -1452,7 +1450,71 @@ p.about-info-text:where(:last-of-type) {
 /*===============================================================
           skills section styles
 ==================================================================*/
+.skills-section {
+   position: relative;
+   width: 100%;
+   height: 100vh;
+   z-index: 3;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: 1.5em;
+}
 
+/*noinspection ALL*/
+.skills-section-title {
+   postion: relative;
+   width: 100%;
+   /*position: relative;
+   top: 5%;
+   font-family: var(--font-heading);
+   font-size: 2.441rem;
+   font-weight: var(--font-weight-semibold);
+   color: var(--color-augmented-900);
+   text-transform: uppercase;
+   text-align: center;
+   letter-spacing: 1px;*/
+}
+
+.skills-title {
+   font-weight: 600;
+   text-transform: uppercase;
+   text-align: center;
+   letter-spacing: 1px;
+}
+
+.skills-section-content {
+   position: relative;
+   min-width: 100%;
+   min-height: 20%;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   /*gap: 30px;*/
+   column-gap: 2em;
+}
+
+@media screen and (max-width: 768px) {
+   .skills-section-content {
+      grid-template-columns: 1fr;
+      column-gap: 0;
+      gap: 1em;
+   }
+}
+
+.skills-section-left,
+.skills-section-right {
+   position: relative;
+   width: 100%;
+   height: 100%;
+}
+
+.skills-sub-title {
+   margin-bottom: 0.5em;
+   font-weight: var(--font-weight-medium);
+   text-transform: capitalize;
+   text-align: center;
+   letter-spacing: var(--ls-letter-spacing-200);
+}
 /*===============================================================
            portfolio section styles
 ==================================================================*/
