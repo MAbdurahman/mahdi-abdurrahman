@@ -1461,19 +1461,10 @@ p.about-info-text:where(:last-of-type) {
    gap: 1.5em;
 }
 
-/*noinspection ALL*/
+
 .skills-section-title {
-   postion: relative;
+   position: relative;
    width: 100%;
-   /*position: relative;
-   top: 5%;
-   font-family: var(--font-heading);
-   font-size: 2.441rem;
-   font-weight: var(--font-weight-semibold);
-   color: var(--color-augmented-900);
-   text-transform: uppercase;
-   text-align: center;
-   letter-spacing: 1px;*/
 }
 
 .skills-title {
@@ -1489,7 +1480,6 @@ p.about-info-text:where(:last-of-type) {
    min-height: 20%;
    display: grid;
    grid-template-columns: repeat(2, 1fr);
-   /*gap: 30px;*/
    column-gap: 2em;
 }
 
@@ -1508,6 +1498,17 @@ p.about-info-text:where(:last-of-type) {
    height: 100%;
 }
 
+@media screen and (max-width: 768px) {
+   .skills-section-left {
+      top: 5%;
+      min-height: 100vh;
+      grid-row-start: 2;
+   }
+   .skills-section-right {
+      grid-row: 1 / -1;
+   }
+}
+
 .skills-sub-title {
    margin-bottom: 0.5em;
    font-weight: var(--font-weight-medium);
@@ -1515,6 +1516,162 @@ p.about-info-text:where(:last-of-type) {
    text-align: center;
    letter-spacing: var(--ls-letter-spacing-200);
 }
+
+.accordions {
+   width: 100%;
+   height: fit-content;
+   display: flex;
+   flex-direction: column;
+}
+
+/************************* CSS for the main interaction *************************/
+.accordion > input[name=collapse] {
+   display: none;
+
+}
+
+.accordion label,
+.accordion .content {
+   max-width: 620px;
+   margin: 0 auto;
+}
+@media screen and (max-width: 1199px) {
+   .accordion label,
+   .accordion .content {
+      max-width: 100%;
+   }
+}
+
+.accordion .content {
+   background: #fff;
+   overflow: hidden;
+   height: 0;
+   box-shadow: var(--bs-box-shadow-bottom-right-600);
+   border-bottom-left-radius: var(--br-border-radius-200);
+   border-bottom-right-radius: var(--br-border-radius-200);
+   transition: 0.5s;
+}
+
+.accordion > input[name=collapse]:checked ~ .content p {
+   height: 192px;
+   padding: 8px 16px;
+   font-size: 0.667rem;
+   /*font-size: ab.set-fluid-body-text(fbt-fluid-body-text-p6);*/
+   font-weight: var(--font-weight-normal);
+   text-align: left;
+   text-transform: none;
+   line-height: 1.5;
+   letter-spacing: 1px;
+   hyphens: auto;
+   color: var(--color-augmented-900);
+   background-color: var(--color-augmented-000);
+   transition: height 0.5s;
+
+}
+@media screen and (max-width: 1199px) {
+   .accordion > input[name=collapse]:checked ~ .content p {
+      height: 104px;
+   }
+}
+
+.accordion label {
+   display: block;
+
+}
+
+/************************* for desktops - larger screens *************************/
+@media only screen and (min-width: 620px) {
+   .accordion > input[name=collapse]:checked ~ .content {
+      height: 120px;
+   }
+}
+/******************** for tablets and phones - smaller screens ********************/
+@media screen and (max-width: 1199px) {
+   .accordion > input[name=collapse]:checked ~ .content {
+      height: 104px;
+   }
+}
+
+.accordion {
+   margin-bottom: 1em;
+}
+
+.accordion > input[name=collapse]:checked ~ .content {
+   border-top: 0;
+   transition: 0.3s;
+}
+
+.accordion .handle {
+   margin: 0;
+   font-size: 16px;
+
+}
+/*noinspection ALL*/
+.accordion label {
+   text-align: left;
+   cursor: pointer;
+   font-family: var(--font-body);
+   font-weight: var(--font-weight-medium);
+   padding: 8px;
+   color: var(--color-neutral-000);
+   background-color: var(--color-primary-700);
+   background-position: right bottom;
+   border-radius: var(--br-border-radius-200);
+   box-shadow: var(--bs-box-shadow-bottom-right-600);
+   transition: all 0.25s ease-in-out;
+
+}
+
+.accordion label:hover {
+   background-position: left bottom;
+}
+
+.accordion label:focus {
+   background-color: var(--color-primary-500);
+}
+
+.accordion label:hover,
+.accordion label:focus {
+   color: var(--color-neutral-100);
+   background-color: var(--color-primary-500);
+
+}
+/*noinspection ALL*/
+.accordion .handle label:before {
+   font-family: FontAwesome;
+   content: "\f107"; /** upward chevron*/
+   display: inline-block;
+   margin-right: 10px;
+   font-size: 1em;
+   line-height: 1.556em;
+   vertical-align: middle;
+   transition: 0.4s;
+
+}
+
+.accordion > input[name=collapse]:checked ~ .handle label {
+   color: var(--color-neutral-100);
+   background-color: var(--color-primary-500);
+   border-bottom-left-radius: 0;
+   border-bottom-right-radius: 0;
+
+}
+
+.accordion > input[name=collapse]:checked ~ .handle label:before {
+   transform: rotate(180deg);
+   transform-origin: center;
+   transition: 0.4s;
+}
+
+
+
+
+
+
+
+
+
+
 /*===============================================================
            portfolio section styles
 ==================================================================*/
