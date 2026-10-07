@@ -62,6 +62,70 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+/*===============================================================
+          progress-bars scripts
+==================================================================*/
+document.addEventListener("DOMContentLoaded", function () {
+   console.log("DOMContentLoaded has loaded for progress-bars!");
+
+   const progressSection = document.querySelector("#progress-bars");
+   const progressBars = document.querySelectorAll(".progress-bar");
+
+   function animateProgress(bar) {
+      const target = Number(bar.dataset.target);
+      const output = bar.closest(".progress-wrap").querySelector(".progress-value");
+      const duration = 3000;
+      const startTime = performance.now();
+
+      function update(now) {
+         const elapsed = now - startTime;
+         const progress = Math.min(elapsed / duration, 1);
+         const value = Math.round(progress * target);
+
+         bar.value = value;
+         output.value = `${value}%`;
+         output.textContent = `${value}%`;
+
+         // Position the badge at the current percentage.
+         output.style.left = `${value}%`;
+
+         if (progress < 1) {
+            requestAnimationFrame(update);
+         }
+      }
+
+      requestAnimationFrame(update);
+   }
+
+   const observer = new IntersectionObserver(
+      (entries, currentObserver) => {
+         if (!entries[0].isIntersecting) return;
+
+         progressBars.forEach(animateProgress);
+         currentObserver.unobserve(progressSection);
+      },
+      { threshold: 0.15 }
+   );
+
+   observer.observe(progressSection);
+
+
+   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      progressBars.forEach((bar) => {
+         const target = Number(bar.dataset.target);
+         const output = bar.closest(".progress-wrap").querySelector(".progress-value");
+
+         bar.value = target;
+         output.value = `${target}%`;
+         output.textContent = `${target}%`;
+         output.style.left = `${target}%`;
+      });
+   } else {
+      observer.observe(progressSection);
+   }
+
+
+});
 
 
 
@@ -103,4 +167,18 @@ document.addEventListener('DOMContentLoaded', () => {
       }
    });*/
 
+
+});
+
+
+$('#progress-bars').waypoint(function () {
+   $('.progress-bar').each(function () {
+      $(this).animate({
+         width: $(this).attr('aria-valuenow') + '%',
+      }, 3000);
+   });
+
+   this.destroy();
+}, {
+   offset: '100%',
 });
