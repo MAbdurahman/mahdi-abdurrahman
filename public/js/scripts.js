@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
           progress-bars scripts
 ==================================================================*/
 document.addEventListener("DOMContentLoaded", function () {
-   console.log("DOMContentLoaded has loaded for progress-bars!");
+   console.log("DOMContentLoaded has loaded for skills section!");
 
    const progressSection = document.querySelector("#progress-bars");
    const progressBars = document.querySelectorAll(".progress-bar");
@@ -127,10 +127,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-
-
+/*===============================================================
+          portfolio section scripts
+==================================================================*/
 document.addEventListener('DOMContentLoaded', () => {
-   console.log('DOMContentLoaded has loaded!');
+   console.log("DOMContentLoaded has loaded for portfolio section!");
+
+   const filterButtons = document.querySelectorAll('.portfolio-filter-button');
+
+   function removeFilterButtonActiveClass() {
+      filterButtons.forEach((filterButton) => {
+         filterButton.classList.remove('active');
+      });
+   }
+
+   function addFilterButtonActiveClass(e) {
+      removeFilterButtonActiveClass();
+      e.target.classList.add('active');
+   }
+
+   filterButtons.forEach((filterButton) => {
+      filterButton.addEventListener('click', addFilterButtonActiveClass);
+   });
+
+
+
+
+
+
+});
+
+/*===============================================================
+          contact form scripts
+==================================================================*/
+document.addEventListener('DOMContentLoaded', () => {
+   console.log('DOMContentLoaded has loaded for contact section!');
 
 /*
    const form = document.getElementById("contact-form");
