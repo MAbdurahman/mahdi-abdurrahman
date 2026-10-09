@@ -1894,7 +1894,7 @@ p.about-info-text:where(:last-of-type) {
    display: flex;
    flex-direction: column;
    justify-content: center;
-   gap: 1.5em;
+   gap: 3em;
 }
 
 
@@ -1998,6 +1998,187 @@ p.about-info-text:where(:last-of-type) {
       margin-right: 8px;
    }
 }
+
+/************************* portfolio-section--lower *************************/
+.portfolio-section--lower {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   gap: 24px;
+}
+
+.portfolio-card {
+   width: 33%;
+   min-height: 100%;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   color: var(--color-augmented-900);
+   background-color: var(--color-neutral-100);
+   border-radius: var(--br-border-radius-200);
+   border: 1px solid var(--color-primary-700);
+   box-shadow: var(--bs-box-shadow-bottom-right-600);
+   transition:
+        transform 220ms var(--tf-ease),
+        box-shadow 220ms var(--tf-ease),
+        border-color 220ms var(--tf-ease),
+        border-width 220ms var(--tf-ease);
+
+}
+
+.portfolio-card:hover {
+   transform: scale(1.0125);
+   box-shadow: var(--bs-box-shadow-bottom-right-800);
+   border-color: var(--color-primary-500);
+   border-width: 2px;
+}
+
+.portfolio-card.is-focus {
+   box-shadow: var(--bs-box-shadow-bottom-right-800);
+   border-color: var(--color-primary-500);
+   border-width: 2px;
+}
+
+.portfolio-card-image {
+   position: relative;
+   /*aspect-ratio: 16 / 10;
+   overflow: hidden;*/
+
+}
+/*
+.portfolio-card-image img {
+   display: block;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   transition: transform 350ms ease;
+}*/
+
+.feature-badge {
+   position: absolute;
+   top: 16px;
+   left: 16px;
+   padding: 8px 16px;
+   color: #ffffff;
+   background: var(--color-primary-500);
+   border-radius: 8px;
+   font-size: 0.75rem;
+   font-weight: 800;
+}
+
+.portfolio-card-content {
+   display: flex;
+   flex: 1;
+   flex-direction: column;
+   padding: 20px;
+}
+
+.portfolio-card-title-section {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 16px;
+   margin-bottom: 8px;
+}
+
+.portfolio-card-title {
+   margin: 0;
+}
+
+.portfolio-icon-link {
+   display: grid;
+   flex: 0 0 36px;
+   padding: 12px;
+   place-items: center;
+   color: var(--color-primary-700);
+   border: 2px solid var(--color-primary-700);
+   border-radius: 50%;
+   font-size: 1rem;
+   text-decoration: none;
+   transition: all 180ms var(--tf-ease);
+}
+
+.portfolio-icon-link:hover,
+.portfolio-icon-link:focus-visible {
+   color: var(--color-neutral-100);
+   background: var(--color-primary-500);
+   border: 2px solid var(--color-primary-500);
+   outline: none;
+}
+
+.portfolio-card-caption {
+   hyphens: auto;
+}
+
+.portfolio-card-tech-list {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 8px;
+   padding: 0;
+   margin: 0 0 24px;
+   list-style: none;
+}
+
+.portfolio-card-tech-list li {
+   padding: 6px 12px;
+   color: var(--color-augmented-900);
+   background-color: var(--color-primary-200);
+   border-radius: var(--br-border-radius-200);
+   font-size: 0.75rem;
+   font-weight: var(--font-weight-medium);
+}
+
+.portfolio-card-buttons {
+   display: flex;
+   gap: 12px;
+   margin-top: auto;
+}
+
+.btn {
+   display: inline-flex;
+   flex: 1;
+   align-items: center;
+   justify-content: center;
+   gap: 7px;
+   min-height: 42px;
+   padding: 10px 14px;
+   text-transform: uppercase;
+   border: 1px solid transparent;
+   border-radius: var(--br-border-radius-200);
+   font-size: 0.86rem;
+   font-weight: 750;
+   text-decoration: none;
+   transition: 180ms ease;
+}
+
+.btn-primary {
+   color: var(--color-neutral-100);
+   background: var(--color-primary-500);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+   background: var(--color-neutral-100);
+   color: var(--color-primary-500);
+   border: 2px solid var(--color-primary-500);
+   outline: none;
+}
+
+.btn-outlined {
+   color: var(--color-primary-500);
+   background: transparent;
+   border: 2px solid var(--color-primary-500);
+}
+
+.btn-outlined:hover,
+.btn-outlined:focus-visible {
+   color: var(--color-neutral-100);
+   border: 2px solid var(--color-primary-500);
+   background: var(--color-primary-500);
+   outline: none;
+}
+
+
+
 /*===============================================================
             contact section styles
 ==================================================================*/
