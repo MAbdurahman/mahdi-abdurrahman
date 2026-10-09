@@ -1543,6 +1543,7 @@ p.about-info-text:where(:last-of-type) {
 
    .skills-section-right {
       grid-row: 1;
+      padding-bottom: 2em;
    }
 }
 
@@ -1935,7 +1936,7 @@ p.about-info-text:where(:last-of-type) {
    display: flex;
    justify-content: center;
    align-items: center;
-   border: 2px solid var(--color-primary-900);
+/*   border: 2px solid var(--color-primary-900);*/
 
 }
 
@@ -1990,6 +1991,12 @@ p.about-info-text:where(:last-of-type) {
 
 .portfolio-filter-button:not(:last-child) {
    margin-right: 16px;
+}
+
+@media screen and (max-width: 320px) {
+   .portfolio-filter-button:not(:last-child) {
+      margin-right: 8px;
+   }
 }
 /*===============================================================
             contact section styles
