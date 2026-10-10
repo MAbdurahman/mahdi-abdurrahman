@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
    }
 
-   $('.filtr-container').filterizr({});
+   /*$('.filtr-container').filterizr({});*/
 
 });
 

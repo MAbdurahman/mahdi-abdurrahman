@@ -1920,7 +1920,8 @@ p.about-info-text:where(:last-of-type) {
    position: relative;
    width: 100%;
    min-height: fit-content;
-   margin: 0 auto;
+   margin: 0 auto 2em;
+
 
 }
 
@@ -2008,8 +2009,8 @@ p.about-info-text:where(:last-of-type) {
 }
 
 .portfolio-card {
-   width: 33.333%;
-   /*min-height: 100%;*/
+   /*width: 33.333%;*/
+   min-height: 100%;
    overflow: hidden;
    display: flex;
    flex-direction: column;
@@ -2046,7 +2047,7 @@ p.about-info-text:where(:last-of-type) {
 
 }
 
-@media screen and (max-width: 992px) {
+/*@media screen and (max-width: 992px) {
    .portfolio-card {
       width: 50%;
    }
@@ -2056,7 +2057,7 @@ p.about-info-text:where(:last-of-type) {
    .portfolio-card {
       width: 100%;
    }
-}
+}*/
 /*
 .portfolio-card-image img {
    display: block;
