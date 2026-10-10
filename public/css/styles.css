@@ -2002,14 +2002,13 @@ p.about-info-text:where(:last-of-type) {
 }
 
 /************************* portfolio-section--lower *************************/
-.portfolio-section--lower {
+.portfolio-card-container {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(304px, 1fr));
    gap: 24px;
 }
 
 .portfolio-card {
-   /*width: 33.333%;*/
    min-height: 100%;
    overflow: hidden;
    display: flex;
@@ -2042,8 +2041,8 @@ p.about-info-text:where(:last-of-type) {
 
 .portfolio-card-image {
    position: relative;
-   /*aspect-ratio: 16 / 10;
-   overflow: hidden;*/
+   /*aspect-ratio: 16 / 10; */
+   overflow: hidden;
 
 }
 
@@ -2190,7 +2189,6 @@ p.about-info-text:where(:last-of-type) {
    background: var(--color-primary-300);
    outline: none;
 }
-
 
 
 /*===============================================================

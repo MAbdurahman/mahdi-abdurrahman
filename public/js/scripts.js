@@ -133,24 +133,6 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener('DOMContentLoaded', () => {
    console.log("DOMContentLoaded has loaded for portfolio section!");
 
-   const filterButtons = document.querySelectorAll('.portfolio-filter-button');
-
-   function removeFilterButtonActiveClass() {
-      filterButtons.forEach((filterButton) => {
-         filterButton.classList.remove('active');
-      });
-   }
-
-   function addFilterButtonActiveClass(e) {
-      removeFilterButtonActiveClass();
-      e.target.classList.add('active');
-   }
-
-   filterButtons.forEach((filterButton) => {
-      filterButton.addEventListener('click', addFilterButtonActiveClass);
-   });
-
-
    document.querySelectorAll('.portfolio-icon-link').forEach((link) => {
       link.addEventListener('focus', () => {
          link.closest('.portfolio-card').classList.add('is-focused');
@@ -160,39 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
          link.closest('.portfolio-card').classList.remove('is-focused');
       });
    });
-
-
-   /************************* portfolio-card filtr-item *************************/
-   const filterizrOptions = {
-      animationDuration: 0.5, // in seconds
-      callbacks: {
-         onFilteringStart: function () {
-         }, onFilteringEnd: function () {
-         }, onShufflingStart: function () {
-         }, onShufflingEnd: function () {
-         }, onSortingStart: function () {
-         }, onSortingEnd: function () {
-         }
-      }, controlsSelector: '', // Selector for custom controls
-      delay: 0, // Transition delay in ms
-      delayMode: 'progressive', // 'progressive' or 'alternate'
-      easing: 'ease-out', filter: 'all', // Initial filter
-      filterOutCss: { // Filtering out animation
-         opacity: 0, transform: 'scale(0.5)'
-      }, filterInCss: { // Filtering in animation
-         opacity: 0, transform: 'scale(1)'
-      }, gridItemsSelector: '.filtr-container', gutterPixels: 0, // Items spacing in pixels
-      layout: 'sameSize', // See layouts
-      multifilterLogicalOperator: 'or', searchTerm: '', setupControls: true, // Should be false if controlsSelector is set
-      spinner: { // Configuration for built-in spinner
-         enabled: false, fillColor: '#2184D0', styles: {
-            height: '75px', margin: '0 auto', width: '75px', 'z-index': 2,
-         },
-      },
-   }
-
-   /*$('.filtr-container').filterizr({});*/
-
 });
 
 /*===============================================================

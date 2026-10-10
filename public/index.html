@@ -22,15 +22,11 @@
           referrerpolicy='no-referrer' rel='stylesheet'/>
     <!-- normalize styles -->
     <link href='./css/normalize/normalize.min.css' rel='stylesheet'>
-    <!-- image hover-extended styles -->
-    <link href='./css/imagehover-extended.css' rel='stylesheet'>
     <!-- main styles -->
     <link href='./css/styles.css' rel='stylesheet'>
     
     <!-- jQuery-3.7.1 scripts -->
     <script defer src='./js/jquery/jquery-3.7.1.min.js'></script>
-    <!-- filterizr scripts -->
-    <script defer src='./js/filterizr/jquery.filterizr.js'></script>
     <!-- waypoints js - https://github.com/imakewebthings/waypoints -->
     <script defer src='./js/waypoints/jquery.waypoints.min.js'></script>
     <!-- Typed Plugin - https://github.com/mattboldt/typed.js -->
@@ -477,34 +473,12 @@
     <section class='section section--four' id='portfolio'>
         <div class='utils-container'>
             <div class='portfolio-section'>
-                <div class='portfolio-section--upper'>
-                    <div class='portfolio-section-title'>
-                        <h2 class='portfolio-title'>My Portfolio</h2>
-                    </div>
-<!--                    <section class='portfolio-filters'>
-                        <ul class='portfolio-filter-buttons' id='portfolio-filters'>
-                            <li class='portfolio-filter-button active'
-                                data-filter='all'
-                                role='button'>Projects
-                            </li>
-                            <li class='portfolio-filter-button'
-                                data-filter='mern'
-                                role='button'>MernApps
-                            </li>
-                            <li class='portfolio-filter-button'
-                                data-filter='website'
-                                role='button'>Websites
-                            </li>
-                            <li class='portfolio-filter-button' data-filter='webapp'
-                                role='button'>WebApps
-                            </li>
-                        </ul>
-                    </section>
-                </div>-->
-                <div class='portfolio-section--lower filtr-container' style="gap: 1.5em">
+                <div class='portfolio-section-title'>
+                    <h2 class='portfolio-title'>My Portfolio</h2>
+                </div>
+                <div class='portfolio-card-container'>
                     <!-- portfolio 1 -->
-                    <article class='portfolio-card featured filtr-item'
-                             data-category='mern, website' data-sort='value'>
+                    <article class='portfolio-card featured'>
                         <figure class='portfolio-card-image'>
                             <img alt='Placeholder Image'
                                  class='utils-img-responsive-up-and-down'
@@ -540,8 +514,7 @@
                     </article>
                     
                     <!-- portfolio 2 -->
-                    <article class='portfolio-card filtr-item'
-                             data-category='webapp, mern' data-sort='value'>
+                    <article class='portfolio-card'>
                         <figure class='portfolio-card-image'>
                             <img alt='Placeholder Image'
                                  class='utils-img-responsive-up-and-down'
@@ -558,15 +531,17 @@
                                 </a>
                             </div>
                             <p class='portfolio-card-caption'>
-                                A timed online assessment app with automatic scoring, result history,
-                                and an admin portal for managing tests and question banks.
+                                A timed online assessment app with automatic scoring,
+                                result history,
+                                and an admin portal for managing tests and question
+                                banks.
                             </p>
                             <ul aria-label='Technologies used'
                                 class='portfolio-card-tech-list'>
                                 <li>Node.js</li>
                                 <li>JWT</li>
                                 <li>MongoDB</li>
-                                
+                            
                             </ul>
                             <div class='portfolio-card-buttons'>
                                 <a class='btn btn-primary' href='#' role='button'>Preview</a>
@@ -576,8 +551,7 @@
                     </article>
                     
                     <!-- portfolio 3 -->
-                    <article class='portfolio-card filtr-item'
-                             data-category='website, webapp' data-sort='value'>
+                    <article class='portfolio-card'>
                         <figure class='portfolio-card-image'>
                             <img alt='Placeholder Image'
                                  class='utils-img-responsive-up-and-down'
@@ -594,8 +568,10 @@
                                 </a>
                             </div>
                             <p class='portfolio-card-caption'>
-                                A content publishing platform with protected admin routes, post
-                                drafts, categories, image uploads, and article management.
+                                A content publishing platform with protected admin
+                                routes, post
+                                drafts, categories, image uploads, and article
+                                management.
                             </p>
                             <ul aria-label='Technologies used'
                                 class='portfolio-card-tech-list'>
@@ -611,8 +587,7 @@
                     </article>
                     
                     <!-- portfolio 4 -->
-                    <article class='portfolio-card filtr-item'
-                             data-category='mern, webapp' data-sort='value'>
+                    <article class='portfolio-card'>
                         <figure class='portfolio-card-image'>
                             <img alt='Placeholder Image'
                                  class='utils-img-responsive-up-and-down'
@@ -629,8 +604,10 @@
                                 </a>
                             </div>
                             <p class='portfolio-card-caption'>
-                                An appointment booking platform with physician availability,
-                                protected accounts, booking management, and double-booking prevention.
+                                An appointment booking platform with physician
+                                availability,
+                                protected accounts, booking management, and
+                                double-booking prevention.
                             </p>
                             <ul aria-label='Technologies used'
                                 class='portfolio-card-tech-list'>
@@ -646,8 +623,7 @@
                     </article>
                     
                     <!-- portfolio 5 -->
-                    <article class='portfolio-card filtr-item'
-                             data-category='mern, webapp' data-sort='value'>
+                    <article class='portfolio-card'>
                         <figure class='portfolio-card-image'>
                             <img alt='Placeholder Image'
                                  class='utils-img-responsive-up-and-down'
@@ -664,8 +640,11 @@
                                 </a>
                             </div>
                             <p class='portfolio-card-caption'>
-                                A Redux-powered task manager with priority levels, search, status
-                                filtering, and persistent task data stored in localStorage.
+                                Redux-powered task manager with functionality to
+                                track
+                                progress, set priorities, organize
+                                deadlines, and persistent data stored
+                                in localStorage
                             </p>
                             <ul aria-label='Technologies used'
                                 class='portfolio-card-tech-list'>
@@ -681,8 +660,7 @@
                     </article>
                     
                     <!-- portfolio 6 -->
-                    <article class='portfolio-card filtr-item'
-                             data-category='website' data-sort='value'>
+                    <article class='portfolio-card'>
                         <figure class='portfolio-card-image'>
                             <img alt='Placeholder Image'
                                  class='utils-img-responsive-up-and-down'
@@ -721,7 +699,6 @@
                             </div>
                         </div>
                     </article>
-                
                 </div>
             </div>
         </div>
