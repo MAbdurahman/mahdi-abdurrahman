@@ -172,6 +172,24 @@ $('#filtr-container').filterizr({});
 document.addEventListener('DOMContentLoaded', () => {
    console.log('DOMContentLoaded has loaded for contact section!');
 
+   $('#contact-section-paragraph').waypoint(function () {
+      const typed5 = new Typed('#contact-paragraph', {
+         strings: ['If you', 'If you have any', 'If you have any questions or wish', 'If you have any questions or wish to collaborate,', 'If you have any questions or wish to collaborate, send me a message! ',],
+         typeSpeed: 120,
+         backSpeed: 70,
+         backDelay: 1000, // cursorChar: '_',
+         showCursor: false,
+         shuffle: false,
+         smartBackspace: true,
+         loop: false,
+      });
+
+      this.destroy();
+   }, {
+      offset: 'bottom-in-view',
+
+   });
+
 /*
    const form = document.getElementById("contact-form");
    const status = document.getElementById("form-status");

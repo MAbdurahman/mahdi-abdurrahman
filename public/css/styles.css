@@ -2197,8 +2197,47 @@ p.about-info-text:where(:last-of-type) {
 /*===============================================================
             contact section styles
 ==================================================================*/
+.contact-section {
+   position: relative;
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
 
+@media screen and (max-width: 1199px) {
+   .contact-section {
+      height: 75vh;
+   }
+}
 
+.contact-section--upper {
+   height: fit-content;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+   margin-bottom: -2.5em;
+}
+
+.contact-title {
+   font-weight: var(--font-weight-medium);
+   text-transform: uppercase;
+   text-align: center;
+}
+
+/*noinspection ALL*/
+.contact-paragraph {
+   margin-bottom: 3.25em;
+   font-size: var(--fluid-body-text-p400);
+   font-family: var(--font-body);
+   font-weight: var(--font-weight-medium);
+   letter-spacing: var(--letter-spacing-100);
+   text-align: center;
+   color: var(--color-primary-700);
+}
 /*===============================================================
             footer section styles
 ==================================================================*/
