@@ -1906,7 +1906,7 @@ p.about-info-text:where(:last-of-type) {
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   gap: 1.5em;
+   gap: 0.75em;
    margin-bottom: 2em;
 }
 
@@ -1920,7 +1920,7 @@ p.about-info-text:where(:last-of-type) {
    position: relative;
    width: 100%;
    min-height: fit-content;
-   margin: 0 auto 2em;
+   margin: 0 auto 0.7em;
 
 
 }
@@ -2002,14 +2002,15 @@ p.about-info-text:where(:last-of-type) {
 }
 
 /************************* portfolio-section--lower *************************/
-.portfolio-card-container {
+.portfolio-section--lower {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(304px, 1fr));
    gap: 24px;
 }
 
 .portfolio-card {
-   min-height: 100%;
+   /*min-height: 100%;*/
+   width: 33.333%;
    overflow: hidden;
    display: flex;
    flex-direction: column;
@@ -2046,17 +2047,19 @@ p.about-info-text:where(:last-of-type) {
 
 }
 
-/*@media screen and (max-width: 992px) {
+@media screen and (max-width: 992px) {
    .portfolio-card {
       width: 50%;
+
    }
+
 }
 
 @media screen and (max-width: 500px) {
    .portfolio-card {
       width: 100%;
    }
-}*/
+}
 /*
 .portfolio-card-image img {
    display: block;

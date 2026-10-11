@@ -27,6 +27,8 @@
     
     <!-- jQuery-3.7.1 scripts -->
     <script defer src='./js/jquery/jquery-3.7.1.min.js'></script>
+    <!-- filterizr -->
+    <script defer src='./js/filterizr/jquery.filterizr.js'></script>
     <!-- waypoints js - https://github.com/imakewebthings/waypoints -->
     <script defer src='./js/waypoints/jquery.waypoints.min.js'></script>
     <!-- Typed Plugin - https://github.com/mattboldt/typed.js -->
@@ -473,12 +475,31 @@
     <section class='section section--four' id='portfolio'>
         <div class='utils-container'>
             <div class='portfolio-section'>
-                <div class='portfolio-section-title'>
-                    <h2 class='portfolio-title'>My Portfolio</h2>
+                <div class='portfolio-section--upper'>
+                    <div class='portfolio-section-title'>
+                        <h2 class='portfolio-title'>My Portfolio</h2>
+                    </div>
+                    <section class='portfolio-filters'>
+                        <ul class='portfolio-filter-buttons' id='portfolio-filters'>
+                            <li class='portfolio-filter-button active' data-filter='all' role='button'>
+                                Projects
+                            </li>
+                            <li class='portfolio-filter-button' data-filter='mern' role='button'>
+                                MernApps
+                            </li>
+                            <li class='portfolio-filter-button' data-filter='website' role='button'>
+                                Websites
+                            </li>
+                            <li class='portfolio-filter-button' data-filter='webapp' role='button'>
+                                WebApps
+                            </li>
+                        </ul>
+                    </section>
                 </div>
-                <div class='portfolio-card-container'>
+                
+                <div class='portfolio-section--lower' id='filtr-container' style="gap: 1.5em">
                     <!-- portfolio 1 -->
-                    <article class='portfolio-card featured'>
+                    <article class='portfolio-card featured filtr-item' data-sort="value" data-category='mern, website'>
                         <figure class='portfolio-card-image'>
                             <img alt='Placeholder Image'
                                  class='utils-img-responsive-up-and-down'
@@ -514,7 +535,7 @@
                     </article>
                     
                     <!-- portfolio 2 -->
-                    <article class='portfolio-card'>
+                    <article class='portfolio-card filtr-item' data-sort="value" data-category='mern, webapp website'>
                         <figure class='portfolio-card-image'>
                             <img alt='Placeholder Image'
                                  class='utils-img-responsive-up-and-down'
@@ -551,7 +572,7 @@
                     </article>
                     
                     <!-- portfolio 3 -->
-                    <article class='portfolio-card'>
+                    <article class='portfolio-card filtr-item' data-sort="value" data-category='mern, website, webapp'>
                         <figure class='portfolio-card-image'>
                             <img alt='Placeholder Image'
                                  class='utils-img-responsive-up-and-down'
@@ -587,7 +608,7 @@
                     </article>
                     
                     <!-- portfolio 4 -->
-                    <article class='portfolio-card'>
+                    <article class='portfolio-card filtr-item' data-sort="value" data-category='mern, webapp'>
                         <figure class='portfolio-card-image'>
                             <img alt='Placeholder Image'
                                  class='utils-img-responsive-up-and-down'
@@ -604,7 +625,7 @@
                                 </a>
                             </div>
                             <p class='portfolio-card-caption'>
-                                An appointment booking platform with physician
+                                An appointment platform with physician
                                 availability,
                                 protected accounts, booking management, and
                                 double-booking prevention.
@@ -623,7 +644,7 @@
                     </article>
                     
                     <!-- portfolio 5 -->
-                    <article class='portfolio-card'>
+                    <article class='portfolio-card filtr-item' data-sort="value" data-category='mern, webapp'>
                         <figure class='portfolio-card-image'>
                             <img alt='Placeholder Image'
                                  class='utils-img-responsive-up-and-down'
@@ -660,7 +681,7 @@
                     </article>
                     
                     <!-- portfolio 6 -->
-                    <article class='portfolio-card'>
+                    <article class='portfolio-card filtr-item' data-sort="value" data-category='website'>
                         <figure class='portfolio-card-image'>
                             <img alt='Placeholder Image'
                                  class='utils-img-responsive-up-and-down'

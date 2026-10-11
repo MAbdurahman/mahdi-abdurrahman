@@ -133,6 +133,24 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener('DOMContentLoaded', () => {
    console.log("DOMContentLoaded has loaded for portfolio section!");
 
+   const filterButtons = document.querySelectorAll('.portfolio-filter-button');
+
+   function removeFilterButtonActiveClass() {
+      filterButtons.forEach((filterButton) => {
+         filterButton.classList.remove('active');
+      });
+   }
+
+   function addFilterButtonActiveClass(e) {
+      removeFilterButtonActiveClass();
+      e.target.classList.add('active');
+   }
+
+   filterButtons.forEach((filterButton) => {
+      filterButton.addEventListener('click', addFilterButtonActiveClass);
+   });
+
+
    document.querySelectorAll('.portfolio-icon-link').forEach((link) => {
       link.addEventListener('focus', () => {
          link.closest('.portfolio-card').classList.add('is-focused');
@@ -142,7 +160,11 @@ document.addEventListener('DOMContentLoaded', () => {
          link.closest('.portfolio-card').classList.remove('is-focused');
       });
    });
+
+$('#filtr-container').filterizr({});
+
 });
+
 
 /*===============================================================
           contact form scripts
