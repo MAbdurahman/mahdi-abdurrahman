@@ -20,6 +20,11 @@
 *:focus {
    outline: none;
 }
+/*
+*:focus-visible {
+   outline: 3px solid var(--color-primary-500);
+   outline-offset: 3px;
+}*/
 
 :root {
 
@@ -621,6 +626,7 @@ to 100%, max-width property to a pixel value of choice, and height to auto*/
    padding: 120px 0;
    background-color: var(--color-neutral-000);
 }
+
 @media screen and (min-width: 320px) and (max-width: 768px) {
    .section--three {
       padding: 120px 0 600px;
@@ -945,6 +951,7 @@ to 100%, max-width property to a pixel value of choice, and height to auto*/
 /************************* primary-button styles *************************/
 /*noinspection ALL*/
 button[class^='primary-button'],
+input[class^='primary-button'],
 a[class^='primary-button'] {
    position: relative;
    min-width: 120px;
@@ -965,11 +972,13 @@ a[class^='primary-button'] {
    outline: none;
    box-shadow: var(--bs-box-shadow-bottom-right-100);
    transition: background-position 0.25s var(--tf-ease-in-out), color 0.5s var(--tf-ease-in-out),
-      border-color 0.5s var(--tf-ease-in-out);
+   border-color 0.5s var(--tf-ease-in-out);
 }
 
 button[class^='primary-button']:hover,
 button[class^='primary-button']:focus-visible,
+input[class^='primary-button']:hover,
+input[class^='primary-button']:focus-visible,
 a[class^='primary-button']:hover,
 a[class^='primary-button']:focus-visible {
    cursor: pointer;
@@ -978,6 +987,7 @@ a[class^='primary-button']:focus-visible {
 }
 
 button[class^='primary-button']:hover,
+input[class^='primary-button']:hover,
 a[class^='primary-button']:hover {
    background-position: left bottom;
 }
@@ -1104,15 +1114,18 @@ a[class^='outline-button--white']:hover {
    height: 100%;
    object-fit: cover;
 }
+
 .header-video-image {
    position: absolute;
    inset: 0;
    display: none;
 }
+
 @media screen and (max-width: 992px) {
    .header-video-item {
       display: none;
    }
+
    .header-video-image {
       display: block;
       width: 100%;
@@ -1394,6 +1407,7 @@ a[class^='outline-button--white']:hover {
    grid-template-columns: .30fr .70fr;
    column-gap: 1.5rem;
 }
+
 @media screen and (max-width: 767px) {
    .about-section-content {
       grid-template-columns: 1fr;
@@ -1453,7 +1467,8 @@ p.about-info-text:where(:last-of-type) {
    flex-direction: row;
 }
 
-.about-info-link {}
+.about-info-link {
+}
 
 .about-info-link:not(:last-child) {
    margin-right: 2em;
@@ -1472,7 +1487,6 @@ p.about-info-text:where(:last-of-type) {
    justify-content: center;
    gap: 1.5em;
 }
-
 
 
 .skills-section-title {
@@ -1536,7 +1550,7 @@ p.about-info-text:where(:last-of-type) {
    }
 
    .skills-section-left {
-      top: auto;        /* remove top: 5% */
+      top: auto; /* remove top: 5% */
       min-height: auto; /* remove min-height: 100vh */
       grid-row: 2;
    }
@@ -1573,6 +1587,7 @@ p.about-info-text:where(:last-of-type) {
    max-width: 620px;
    margin: 0 auto;
 }
+
 @media screen and (max-width: 1199px) {
    .accordion label,
    .accordion .content {
@@ -1606,6 +1621,7 @@ p.about-info-text:where(:last-of-type) {
    transition: height 0.5s;
 
 }
+
 @media screen and (max-width: 1199px) {
    .accordion > input[name=collapse]:checked ~ .content p {
       height: 104px;
@@ -1623,6 +1639,7 @@ p.about-info-text:where(:last-of-type) {
       height: 120px;
    }
 }
+
 /******************** for tablets and phones - smaller screens ********************/
 @media screen and (max-width: 1199px) {
    .accordion > input[name=collapse]:checked ~ .content {
@@ -1644,6 +1661,7 @@ p.about-info-text:where(:last-of-type) {
    font-size: 16px;
 
 }
+
 /*noinspection ALL*/
 .accordion label {
    text-align: left;
@@ -1674,6 +1692,7 @@ p.about-info-text:where(:last-of-type) {
    background-color: var(--color-primary-500);
 
 }
+
 /*noinspection ALL*/
 .accordion .handle label:before {
    font-family: FontAwesome;
@@ -1868,9 +1887,6 @@ p.about-info-text:where(:last-of-type) {
 }
 
 
-
-
-
 /*===============================================================
            portfolio section styles
 ==================================================================*/
@@ -1931,6 +1947,7 @@ p.about-info-text:where(:last-of-type) {
    text-align: center;
 
 }
+
 .portfolio-filters {
    position: relative;
    max-width: 560px;
@@ -1938,7 +1955,7 @@ p.about-info-text:where(:last-of-type) {
    display: flex;
    justify-content: center;
    align-items: center;
-/*   border: 2px solid var(--color-primary-900);*/
+   /*   border: 2px solid var(--color-primary-900);*/
 
 }
 
@@ -1951,6 +1968,7 @@ p.about-info-text:where(:last-of-type) {
    align-items: center;
 
 }
+
 /*noinspection ALL*/
 .portfolio-filter-button {
    position: relative;
@@ -1985,6 +2003,7 @@ p.about-info-text:where(:last-of-type) {
 .portfolio-filter-button:hover {
    background-position: left bottom;
 }
+
 .portfolio-filter-button.active {
    color: var(--color-neutral-000);
    border-color: var(--color-primary-700);
@@ -2019,11 +2038,10 @@ p.about-info-text:where(:last-of-type) {
    border-radius: var(--br-border-radius-200);
    border: 1px solid var(--color-primary-700);
    box-shadow: var(--bs-box-shadow-bottom-right-600);
-   transition:
-        transform 220ms var(--tf-ease),
-        box-shadow 220ms var(--tf-ease),
-        border-color 220ms var(--tf-ease),
-        border-width 220ms var(--tf-ease);
+   transition: transform 220ms var(--tf-ease),
+   box-shadow 220ms var(--tf-ease),
+   border-color 220ms var(--tf-ease),
+   border-width 220ms var(--tf-ease);
 
 }
 
@@ -2060,6 +2078,7 @@ p.about-info-text:where(:last-of-type) {
       width: 100%;
    }
 }
+
 /*
 .portfolio-card-image img {
    display: block;
@@ -2213,6 +2232,7 @@ p.about-info-text:where(:last-of-type) {
    }
 }
 
+/************************* contact-section--upper *************************/
 .contact-section--upper {
    height: fit-content;
    display: flex;
@@ -2232,12 +2252,197 @@ p.about-info-text:where(:last-of-type) {
 .contact-paragraph {
    margin-bottom: 3.25em;
    font-size: var(--fluid-body-text-p400);
+   font-size: 1rem;
    font-family: var(--font-body);
    font-weight: var(--font-weight-medium);
    letter-spacing: var(--letter-spacing-100);
    text-align: center;
-   color: var(--color-primary-700);
+   color: var(--color-primary-500);
 }
+
+@media screen and (max-width: 380px) {
+   .contact-paragraph {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 40ch; /* limits characters per line (roughly) */
+      text-align: center; /* optional: center the text itself */
+
+   }
+}
+
+/************************* contact-section--lower *************************/
+.contact-section--lower {
+   position: relative;
+   width: 100%;
+   height: fit-content;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+@media only screen and (max-width: 1540px) {
+   .contact-section--lower {
+      flex-basis: 66.667%;
+   }
+}
+
+.contact-form-group {
+   position: relative;
+   width: 66.667%;
+   height: fit-content;
+}
+
+@media only screen and (max-width: 1199px) {
+   .contact-form-group {
+      width: 90%;
+   }
+}
+
+.contact-form {
+   position: relative;
+   width: 100%;
+   height: fit-content;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.contact-form-content,
+.contact-form-content-textarea {
+   position: relative;
+   width: 98%;
+   z-index: 2;
+   margin: 20px 3%;
+   overflow: visible;
+   isolation: isolate;
+}
+
+.field-control {
+   position: relative;
+   isolation: isolate;
+}
+
+.utils-effect-07 {
+   position: relative;
+   width: 100%;
+   display: inline-block;
+   padding: 8px 16px;
+   font: 20/1.5 var(--font-body);
+   font-weight: var(--font-weight-medium);
+   letter-spacing: var(--ls-letter-spacing-100);
+   color: var(--color-augmented-800);
+   background-color: transparent;
+   border: 2px solid var(--color-neutral-800);
+   border-radius: var(--br-border-radius-200);
+   transition: border-color 0.4s var(--tf-ease);
+}
+
+.utils-effect-07:hover,
+.utils-effect-07:focus,
+.has-content.utils-effect-07 {
+   border-color: var(--color-primary-500);
+}
+
+.utils-effect-07 ~ .focus-background-07 {
+   position: absolute;
+   inset: 0;
+   width: 0;
+   z-index: -1;
+   background-color: var(--color-primary-100);
+   border-radius: var(--br-border-radius-200);
+   transition: width 0.4s var(--tf-ease);
+}
+
+textarea.utils-effect-07 ~ .focus-background-07 {
+   position: absolute;
+   inset: 0;
+   width: 0;
+   z-index: -1;
+   background-color: var(--color-primary-100);
+   border-radius: var(--br-border-radius-200);
+   transition: width 0.4s var(--tf-ease);
+}
+
+.utils-effect-07:focus ~ .focus-background-07,
+.has-content.utils-effect-07 ~ .focus-background-07 {
+   width: 100%;
+   transition: width 0.4s var(--tf-ease);
+}
+
+/*.focus-background-07 {
+   position: absolute;
+   inset: 0;
+   width: 0;
+   z-index: -1;
+   background-color: var(--color-primary-100);
+   border-radius: var(--br-border-radius-200);
+   transition: width 0.4s var(--tf-ease);
+}*/
+
+.utils-effect-07 ~ label {
+   position: absolute;
+   left: 8px;
+   top: 8px;
+   width: 100%;
+   z-index: 2;
+   font-size: 16px;
+   font-weight: 400;
+   color: var(--color-augmented-800);
+   letter-spacing: var(--ls-letter-spacing-100);
+   transition: font-size 0.3s var(--tf-ease), font-weight 0.3s var(--tf-ease),
+   color 0.3s var(--tf-ease), top 0.3s var(--tf-ease);
+
+}
+
+.utils-effect-07:focus ~ label,
+.utils-effect-07.has-content ~ label {
+   top: -18px;
+   z-index: 2;
+   font-size: 14px;
+   font-weight: 600;
+   color: var(--color-primary-500);
+   transition: font-size 0.3s var(--tf-ease), font-weight 0.3s var(--tf-ease),
+   color 0.3s var(--tf-ease), top 0.3s var(--tf-ease);
+}
+
+.utils-effect-07 ~ label {
+   pointer-events: none;
+}
+
+textarea.utils-effect-07 {
+   hyphens: auto;
+}
+
+textarea:focus ~ label,
+textarea.has-content ~ label {
+   top: -18px;
+   font-size: 14px;
+   color: var(--color-primary-500);
+}
+
+
+/*.contact-form-content:focus-within label,
+.contact-form-content-textarea:focus-within label,
+.contact-form-content:has(.utils-effect-07.has-content) label,
+.contact-form-content-textarea:has(.utils-effect-07.has-content) label {
+   top: -18px;
+   z-index: 4;
+   font-size: 14px;
+   font-weight: 600;
+   color: var(--color-primary-500);
+}*/
+
+
+.contact-form-input-prompt-textarea,
+.contact-form-input-prompt {
+   font-weight: 500;
+}
+
+
+
+
+
 /*===============================================================
             footer section styles
 ==================================================================*/

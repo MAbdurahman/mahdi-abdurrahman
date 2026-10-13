@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
    $('#contact-section-paragraph').waypoint(function () {
       const typed5 = new Typed('#contact-paragraph', {
-         strings: ['If you', 'If you have any', 'If you have any questions or wish', 'If you have any questions or wish to collaborate,', 'If you have any questions or wish to collaborate, send me a message! ',],
+         strings: ['If you have any', 'If you have any questions or wish', 'If you have any questions or wish to collaborate,', 'If you have any questions or wish to collaborate, send me a message! ',],
          typeSpeed: 120,
          backSpeed: 70,
          backDelay: 1000, // cursorChar: '_',
@@ -188,6 +188,26 @@ document.addEventListener('DOMContentLoaded', () => {
    }, {
       offset: 'bottom-in-view',
 
+   });
+
+   /*************************** effect 07 scripts ***************************/
+   const inputs = document.querySelectorAll('.js-effect-07 .utils-effect-07');
+
+
+   function updateInputState(input) {
+      input.classList.toggle('has-content', input.value.trim() !== '');
+   }
+
+   inputs.forEach((input) => {
+      updateInputState(input); // Handles values already present on load.
+
+      input.addEventListener('input', () => {
+         updateInputState(input);
+      });
+
+      input.addEventListener('blur', () => {
+         updateInputState(input);
+      });
    });
 
 /*

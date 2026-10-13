@@ -481,25 +481,31 @@
                     </div>
                     <section class='portfolio-filters'>
                         <ul class='portfolio-filter-buttons' id='portfolio-filters'>
-                            <li class='portfolio-filter-button active' data-filter='all' role='button'>
+                            <li class='portfolio-filter-button active'
+                                data-filter='all' role='button'>
                                 Projects
                             </li>
-                            <li class='portfolio-filter-button' data-filter='mern' role='button'>
+                            <li class='portfolio-filter-button' data-filter='mern'
+                                role='button'>
                                 MernApps
                             </li>
-                            <li class='portfolio-filter-button' data-filter='website' role='button'>
+                            <li class='portfolio-filter-button' data-filter='website'
+                                role='button'>
                                 Websites
                             </li>
-                            <li class='portfolio-filter-button' data-filter='webapp' role='button'>
+                            <li class='portfolio-filter-button' data-filter='webapp'
+                                role='button'>
                                 WebApps
                             </li>
                         </ul>
                     </section>
                 </div>
                 
-                <div class='portfolio-section--lower' id='filtr-container' style="gap: 1.5em">
+                <div class='portfolio-section--lower' id='filtr-container'
+                     style='gap: 1.5em'>
                     <!-- portfolio 1 -->
-                    <article class='portfolio-card featured filtr-item' data-sort="value" data-category='mern, website'>
+                    <article class='portfolio-card featured filtr-item'
+                             data-category='mern, website' data-sort='value'>
                         <figure class='portfolio-card-image'>
                             <img alt='Placeholder Image'
                                  class='utils-img-responsive-up-and-down'
@@ -535,7 +541,9 @@
                     </article>
                     
                     <!-- portfolio 2 -->
-                    <article class='portfolio-card filtr-item' data-sort="value" data-category='mern, webapp website'>
+                    <article class='portfolio-card filtr-item'
+                             data-category='mern, webapp website'
+                             data-sort='value'>
                         <figure class='portfolio-card-image'>
                             <img alt='Placeholder Image'
                                  class='utils-img-responsive-up-and-down'
@@ -572,7 +580,9 @@
                     </article>
                     
                     <!-- portfolio 3 -->
-                    <article class='portfolio-card filtr-item' data-sort="value" data-category='mern, website, webapp'>
+                    <article class='portfolio-card filtr-item'
+                             data-category='mern, website, webapp'
+                             data-sort='value'>
                         <figure class='portfolio-card-image'>
                             <img alt='Placeholder Image'
                                  class='utils-img-responsive-up-and-down'
@@ -608,7 +618,9 @@
                     </article>
                     
                     <!-- portfolio 4 -->
-                    <article class='portfolio-card filtr-item' data-sort="value" data-category='mern, webapp'>
+                    <article class='portfolio-card filtr-item'
+                             data-category='mern, webapp'
+                             data-sort='value'>
                         <figure class='portfolio-card-image'>
                             <img alt='Placeholder Image'
                                  class='utils-img-responsive-up-and-down'
@@ -644,7 +656,9 @@
                     </article>
                     
                     <!-- portfolio 5 -->
-                    <article class='portfolio-card filtr-item' data-sort="value" data-category='mern, webapp'>
+                    <article class='portfolio-card filtr-item'
+                             data-category='mern, webapp'
+                             data-sort='value'>
                         <figure class='portfolio-card-image'>
                             <img alt='Placeholder Image'
                                  class='utils-img-responsive-up-and-down'
@@ -681,7 +695,9 @@
                     </article>
                     
                     <!-- portfolio 6 -->
-                    <article class='portfolio-card filtr-item' data-sort="value" data-category='website'>
+                    <article class='portfolio-card filtr-item'
+                             data-category='website'
+                             data-sort='value'>
                         <figure class='portfolio-card-image'>
                             <img alt='Placeholder Image'
                                  class='utils-img-responsive-up-and-down'
@@ -724,8 +740,8 @@
             </div>
         </div>
     </section>
-
-<!-- contact section -->
+    
+    <!-- contact section -->
     <section class='section section--five' id='contact'>
         <div class='utils-container'>
             <div class='contact-section'>
@@ -733,11 +749,66 @@
                     <div class='contact-section-title'>
                         <h2 class='contact-title'>Contact Me</h2>
                     </div>
-                    <div class='contact-section-paragraph' id='contact-section-paragraph'>
-                        <h5 class='contact-paragraph' id='contact-paragraph'>I</h5>
+                    <div class='contact-section-paragraph'
+                         id='contact-section-paragraph'>
+                        <p class='contact-paragraph' id='contact-paragraph'>I</p>
                     </div>
                 </div>
-                <div class='contact-section--lower'></div>
+                <div class='contact-section--lower'>
+                    <div class='contact-form-group' id='contact-form-group'>
+                        <form action='' class='contact-form'
+                              id='contact-form' method='POST' novalidate>
+                            <!-- fullName input -->
+                            <div class='contact-form-content js-effect-07'>
+                                <div class='field-control'>
+                                    <input class='utils-effect-07' id='fullName'
+                                           name='fullName' placeholder=''
+                                           type='text'>
+                                    <label for='fullName'>Full name</label>
+                                    <span class='focus-background-07'></span>
+                                </div>
+                                <span class='contact-form-input-prompt'
+                                      id='contact-form-name-prompt'>&nbsp;</span>
+                            </div>
+                            
+                            <!-- email input -->
+                            <div class='contact-form-content js-effect-07'>
+                                <div class='field-control'>
+                                    <input class='utils-effect-07' id='email'
+                                           name='email'
+                                           placeholder='' type='text'/>
+                                    <label for='email'>Email</label>
+                                    <span class='focus-background-07'></span>
+                                </div>
+                                <span class='contact-form-input-prompt'
+                                      id='contact-form-email-prompt'>&nbsp;</span>
+                            </div>
+                            
+                            <!-- message textarea -->
+                            <div class='contact-form-content-textarea js-effect-07'>
+                                <div class='field-control'>
+                                    <textarea class='utils-effect-07'
+                                              id='messageTextarea'
+                                              name='message'
+                                              placeholder='' rows='3'
+                                              type='textarea'></textarea>
+                                    <label for='messageTextarea'>Message</label>
+                                    <span class='focus-background-07'></span>
+                                </div>
+                                <span class='contact-form-input-prompt-textarea'
+                                      id='contact-form-message-prompt'>&nbsp;</span>
+                            </div>
+                            <div class='toast-container'></div>
+                            <!-- submit button -->
+                            <div class='contact-form-content'>
+                                <input class='primary-button'
+                                       id='contact-form-submit'
+                                       type='submit'
+                                       value='Send Message'>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
