@@ -2440,6 +2440,7 @@ textarea.has-content ~ label {
 ==================================================================*/
 .toast-container {
    position: absolute;
+   z-index: 10;
    bottom: 33.333vh;
    right: 32px;
    width: 100%;

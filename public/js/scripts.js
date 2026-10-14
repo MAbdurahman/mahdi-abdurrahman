@@ -172,6 +172,7 @@ $('#filtr-container').filterizr({});
 document.addEventListener('DOMContentLoaded', () => {
    console.log('DOMContentLoaded has loaded for contact section!');
 
+   /************************* contact section paragraph *************************/
    $('#contact-section-paragraph').waypoint(function () {
       const typed5 = new Typed('#contact-paragraph', {
          strings: ['If you have any', 'If you have any questions or wish', 'If you have any questions or wish to collaborate,', 'If you have any questions or wish to collaborate, send me a message! ',],
@@ -209,6 +210,212 @@ document.addEventListener('DOMContentLoaded', () => {
          updateInputState(input);
       });
    });
+
+   /************************* interactive contact form *************************/
+   const fullnamePattern = /^([a-zA-Z-]{2,}\s[a-zA-z]{1,}'?-?[a-zA-Z]{1,}\s?([a-zA-Z]{1,})?)(,? (?:[JS]r\.?|II|III|IV))?$/g;
+   const emailPattern = /^[!A-Z0-9#$&?*^~_%+-]+(\.[A-Z0-9!_%+-^]+)*?@[A-Z0-9-]+([A-Z0-9.-])*\.[A-Z]{2,}$/i;
+
+   const root = document.documentElement;
+   const form = document.getElementById('contact-form');
+   const nameInput = document.getElementById('name');
+   const emailInput = document.getElementById('email');
+   const messageInput = document.getElementById('message');
+
+   const requiredMinLength = 10;
+   const requiredMaxLength = 280;
+
+   let isNameValid = false;
+   let isEmailValid = false;
+   let isMessageValid = false;
+
+   let namePrompt = document.getElementById('contact-form-name-prompt');
+   let emailPrompt = document.getElementById('contact-form-email-prompt');
+   let messagePrompt = document.getElementById('contact-form-message-prompt');
+   let message = '';
+
+   const successColor = root.getAttribute('data-theme') === 'dark'
+      ? '#4bd704' : '#166534';
+   const alertColor = root.getAttribute('data-theme') === 'dark'
+      ? '#bc0404' : '#991b1b';
+   const toastContainer = document.querySelector('.toast-container');
+
+   if (!toastContainer) {
+      console.error('Toast container not found!');
+      return;
+   }
+
+   const icons = {
+      success: 'fa-circle-check',
+      error: 'fa-circle-xmark',
+      warn: 'fa-triangle-exclamation',
+      inform: 'fa-circle-info'
+   };
+
+   function getMessagePrompt(message, elementId, color) {
+      const prompt = document.getElementById(elementId);
+      prompt.textContent = message;
+      prompt.style.color = color;
+   }
+
+   function validateName() {
+      let name = nameInput.value.trim();
+      message = '';
+
+      if (name.length === 0) {
+         message = 'Your first and last name are required!';
+         isNameValid = false;
+         getMessagePrompt(message, `${namePrompt.id}`, alertColor);
+         return false;
+      }
+      if (!name.match(fullnamePattern)) {
+         message = 'Enter your first and last name!';
+         isNameValid = false;
+         getMessagePrompt(message, `${namePrompt.id}`, alertColor);
+         return false;
+      }
+      message = 'Welcome ' + name;
+      isNameValid = true;
+      getMessagePrompt(message, `${namePrompt.id}`, successColor);
+      return true;
+   }
+
+   function validateEmail() {
+      let email = emailInput.value.trim();
+      message = '';
+
+      if (email.length === 0) {
+         message = 'Your email address is required!';
+         isEmailValid = false;
+         getMessagePrompt(message, `${emailPrompt.id}`, alertColor);
+         return false;
+      }
+      if (!email.match(emailPattern)) {
+         message = 'Enter a valid email address!';
+         isEmailValid = false;
+         getMessagePrompt(message, `${emailPrompt.id}`, alertColor);
+         return false;
+      }
+      message = 'Valid email address';
+      isEmailValid = true;
+      getMessagePrompt(message, `${emailPrompt.id}`, successColor);
+      return true;
+   }
+
+   function validateMessage() {
+      let textAreaMessage = messageInput.value.trim();
+      message = '';
+
+      if (textAreaMessage.length < requiredMinLength) {
+         message = `Minimum ${requiredMinLength} characters required!`;
+         isMessageValid = false;
+         getMessagePrompt(message, `${messagePrompt.id}`, alertColor);
+         return false;
+      }
+      if (textAreaMessage.length > requiredMaxLength) {
+         message = `Maximum ${requiredMaxLength} characters allowed!`;
+         isMessageValid = false;
+         getMessagePrompt(message, `${messagePrompt.id}`, alertColor);
+         return false;
+      }
+      let maxRequiredCharactersLeft = requiredMaxLength - textAreaMessage.length;
+      message = `Maximum ${maxRequiredCharactersLeft} characters left`;
+      isMessageValid = true;
+      getMessagePrompt(message, `${messagePrompt.id}`, successColor);
+      return true;
+   }
+
+   function showToastNotification(type, messages) {
+      const toast = document.createElement('div');
+      const icon = document.createElement('i');
+      const content = document.createElement('div');
+
+      toast.className = `toast ${type}`;
+      toast.setAttribute('role', type === 'error' ? 'alert' : 'status');
+
+      icon.className = `fa-solid ${icons[type]}`;
+      icon.setAttribute('aria-hidden', 'true');
+
+      if (Array.isArray(messages)) {
+         const list = document.createElement('ul');
+
+         messages.forEach((message) => {
+            const item = document.createElement('li');
+            item.textContent = message;
+            list.appendChild(item);
+         });
+
+         content.appendChild(list);
+      } else {
+         content.textContent = messages;
+      }
+
+      toast.append(icon, content);
+      toastContainer.appendChild(toast);
+
+      window.setTimeout(() => {
+         toast.classList.add('exit-to-left');
+      }, 5000);
+
+      toast.addEventListener('animationend', (event) => {
+         if (event.animationName === 'exit-to-left') {
+            toast.remove();
+         }
+      });
+   }
+
+   function performInvalidForm(errors) {
+      showToastNotification('error', errors);
+   }
+
+   function performValidForm() {
+      showToastNotification('success', 'Your message has been validated!');
+
+      // No email is sent. Reset only after a successful validation.
+      /*document.getElementById('contact-form').reset();*/
+      form.reset();
+
+      // Return labels to their original positions.
+      inputs.forEach((input) => {
+         updateInputState(input);
+      });
+
+      // Clear inline prompts.
+      namePrompt.textContent = '\u00A0';
+      emailPrompt.textContent = '\u00A0';
+      messagePrompt.textContent = '\u00A0';
+   }
+
+   function validateForm(e) {
+      e.preventDefault();
+
+      const errors = [];
+
+      if (!validateName()) {
+         errors.push('Enter a valid first and last name!');
+      }
+
+      if (!validateEmail()) {
+         errors.push('Enter a valid email address!');
+      }
+
+      if (!validateMessage()) {
+         errors.push(
+            `Enter a message between ${requiredMinLength} and ${requiredMaxLength} characters!`
+         );
+      }
+
+      if (errors.length > 0) {
+         performInvalidForm(errors);
+         return;
+      }
+
+      performValidForm();
+   }
+
+   nameInput.addEventListener('keyup', validateName);
+   emailInput.addEventListener('keyup', validateEmail);
+   messageInput.addEventListener('keyup', validateMessage);
+   form.addEventListener('submit', validateForm);
 
 /*
    const form = document.getElementById("contact-form");
