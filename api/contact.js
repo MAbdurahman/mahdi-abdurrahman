@@ -23,13 +23,17 @@ export default async function handler(req, res) {
          },
       });
 
+      const emailHtml = sendContactFormMessage(name, email, message);
+
+      console.log(emailHtml);
+
       await transporter.sendMail({
          from: `"Portfolio Contact Form" <${process.env.EMAIL_USER}>`,
          to: process.env.EMAIL_TO,
          replyTo: email,
          subject: `New portfolio message from ${name}`,
          text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-         html: sendContactFormMessage(name, email, message),
+         html: emailHtml,
       });
 
       return res.status(200).json({

@@ -367,35 +367,67 @@ document.addEventListener('DOMContentLoaded', () => {
       showToastNotification('error', errors);
    }
 
-   function performValidForm() {
-      showToastNotification('success', 'Your message has been validated!');
+   async function performValidForm() {
+      const submitButton = document.getElementById("contact-form-submit");
 
-      // No email is sent. Reset only after a successful validation.
-      /*document.getElementById('contact-form').reset();*/
-      form.reset();
+      submitButton.disabled = true;
+      submitButton.value = "Sending...";
 
-      // Return labels to their original positions.
-      inputs.forEach((input) => {
-         updateInputState(input);
-      });
+      try {
+         const data = {
+            name: nameInput.value.trim(),
+            email: emailInput.value.trim(),
+            message: messageInput.value.trim(),
+         };
 
-      // Clear inline prompts.
-      namePrompt.textContent = '\u00A0';
-      emailPrompt.textContent = '\u00A0';
-      messagePrompt.textContent = '\u00A0';
+         const response = await fetch("/api/contact", {
+            method: "POST",
+            headers: {
+               "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+         });
+
+         const result = await response.json();
+
+         if (!response.ok) {
+            throw new Error(result.message || "Unable to send message.");
+         }
+
+         showToastNotification("success", result.message);
+
+         form.reset();
+
+         inputs.forEach((input) => {
+            updateInputState(input);
+         });
+
+         namePrompt.textContent = "\u00A0";
+         emailPrompt.textContent = "\u00A0";
+         messagePrompt.textContent = "\u00A0";
+      } catch (error) {
+         showToastNotification(
+            "error",
+            error.message || "Something went wrong while sending your message."
+         );
+      } finally {
+         submitButton.disabled = false;
+         submitButton.value = "Send Message";
+      }
    }
 
-   function validateForm(e) {
-      e.preventDefault();
+
+   function validateForm(event) {
+      event.preventDefault();
 
       const errors = [];
 
       if (!validateName()) {
-         errors.push('Enter a valid first and last name!');
+         errors.push("Enter a valid first and last name!");
       }
 
       if (!validateEmail()) {
-         errors.push('Enter a valid email address!');
+         errors.push("Enter a valid email address!");
       }
 
       if (!validateMessage()) {
@@ -411,6 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       performValidForm();
    }
+
 
    nameInput.addEventListener('keyup', validateName);
    emailInput.addEventListener('keyup', validateEmail);
@@ -453,17 +486,4 @@ document.addEventListener('DOMContentLoaded', () => {
    });*/
 
 
-});
-
-
-$('#progress-bars').waypoint(function () {
-   $('.progress-bar').each(function () {
-      $(this).animate({
-         width: $(this).attr('aria-valuenow') + '%',
-      }, 3000);
-   });
-
-   this.destroy();
-}, {
-   offset: '100%',
 });
