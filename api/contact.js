@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import sendContactFormMessage from "../email/sendContactFormMessage.js";
 
 export default async function handler(req, res) {
    if (req.method !== "POST") {
@@ -10,7 +11,7 @@ export default async function handler(req, res) {
 
       if (!name || !email || !message) {
          return res.status(400).json({
-            message: "Name, email, and message are required.",
+            message: "Full name, email, and message are required.",
          });
       }
 
@@ -28,18 +29,19 @@ export default async function handler(req, res) {
          replyTo: email,
          subject: `New portfolio message from ${name}`,
          text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+         html: sendContactFormMessage(name, email, message),
       });
 
       return res.status(200).json({
          success: true,
-         message: "Message sent successfully.",
+         message: "Message sent successfully!",
       });
    } catch (error) {
       console.error("Contact form error:", error);
 
       return res.status(500).json({
          success: false,
-         message: "Unable to send message. Please try again later.",
+         message: "Unable to send message. Please try again later!",
       });
    }
 }
