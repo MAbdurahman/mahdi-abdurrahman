@@ -2321,6 +2321,7 @@ p.about-info-text:where(:last-of-type) {
 .field-control {
    position: relative;
    isolation: isolate;
+   width: 100%;
 }
 
 .utils-effect-07 {
@@ -2336,6 +2337,24 @@ p.about-info-text:where(:last-of-type) {
    border: 2px solid var(--color-neutral-800);
    border-radius: var(--br-border-radius-200);
    transition: border-color 0.4s var(--tf-ease);
+}
+
+.field-control .utils-effect-07 {
+   position: relative;
+   z-index: 1;
+   display: block;
+   width: 100%;
+   background-color: transparent;
+}
+
+.field-control .focus-background-07 {
+   position: absolute;
+   inset: 0;
+   z-index: -1;
+   width: 0;
+   border-radius: var(--br-border-radius-200);
+   background-color: var(--color-primary-100);
+   transition: width 0.4s var(--tf-ease);
 }
 
 .utils-effect-07:hover,
@@ -2369,16 +2388,6 @@ textarea.utils-effect-07 ~ .focus-background-07 {
    width: 100%;
    transition: width 0.4s var(--tf-ease);
 }
-
-/*.focus-background-07 {
-   position: absolute;
-   inset: 0;
-   width: 0;
-   z-index: -1;
-   background-color: var(--color-primary-100);
-   border-radius: var(--br-border-radius-200);
-   transition: width 0.4s var(--tf-ease);
-}*/
 
 .utils-effect-07 ~ label {
    position: absolute;
@@ -2421,26 +2430,243 @@ textarea.has-content ~ label {
    color: var(--color-primary-500);
 }
 
-
-/*.contact-form-content:focus-within label,
-.contact-form-content-textarea:focus-within label,
-.contact-form-content:has(.utils-effect-07.has-content) label,
-.contact-form-content-textarea:has(.utils-effect-07.has-content) label {
-   top: -18px;
-   z-index: 4;
-   font-size: 14px;
-   font-weight: 600;
-   color: var(--color-primary-500);
-}*/
-
-
 .contact-form-input-prompt-textarea,
 .contact-form-input-prompt {
    font-weight: 500;
 }
 
+/*===============================================================
+          toast-container and toast styles
+==================================================================*/
+.toast-container {
+   position: absolute;
+   bottom: 33.333vh;
+   right: 32px;
+   width: 100%;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   padding: 1.5rem;
 
+}
 
+.toast {
+   position: relative;
+   width: 400px;
+   height: 160px;
+   display: flex;
+   align-items: center;
+   margin: 16px 0;
+   padding: 16px;
+   font-weight: 500;
+   background-color: var(--color-augmented-000);
+   border-top-right-radius: var(--br-border-radius-400);
+   border-bottom-right-radius: var(--br-border-radius-400);
+   box-shadow: var(--bs-box-shadow-bottom-right-500);
+   transform: translateX(100%);
+   animation-name: move-in-from-right;
+   animation-duration: 1s;
+   animation-iteration-count: 1;
+   animation-timing-function: var(--tf-ease);
+   animation-fill-mode: forwards;
+
+}
+
+@media screen and (max-width: 540px) {
+   .toast {
+      width: 300px;
+   }
+}
+@media screen and (max-width: 390px) {
+   .toast-container {
+      right: 16px;
+   }
+   .toast {
+      width: 248px;
+   }
+}
+
+.toast.move-back-to-right {
+   animation-name: move-back-to-right;
+   animation-duration: 1s;
+   animation-iteration-count: 1;
+   animation-timing-function: var(--tf-ease);
+   animation-fill-mode: forwards;
+}
+
+.toast.exit-to-left {
+   animation-name: exit-to-left;
+   animation-duration: 1s;
+   animation-iteration-count: 1;
+   animation-timing-function: var(--tf-ease);
+   animation-fill-mode: forwards;
+}
+
+.toast.success {
+   gap: 8px;
+   color: var(--color-neutral-000);
+   background-color: var(--color-semantic-success-200);
+   border-left: 8px solid var(--color-semantic-success-400);
+}
+
+.toast.error {
+   gap: 8px;
+   color: var(--color-neutral-000);
+   background-color: var(--color-semantic-alert-200);
+   border-left: 8px solid var(--color-semantic-alert-400);
+}
+
+.toast.warn {
+   gap: 8px;
+   color: var(--color-neutral-000);
+   background-color: var(--color-semantic-warn-200);
+   border-left: 8px solid var(--color-semantic-warn-400);
+}
+
+.toast.inform {
+   gap: 8px;
+   color: var(--color-neutral-000);
+   background-color: var(--color-semantic-inform-200);
+   border-left: 8px solid var(--color-semantic-inform-400);
+}
+
+.toast.success::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 5px;
+   background-color: var(--color-semantic-success-400);
+   animation: progress-left 4s linear forwards;
+   animation-delay: 1s;
+}
+
+.toast.error::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 5px;
+   background-color: var(--color-semantic-alert-400);
+   animation: progress-left 4s linear forwards;
+   animation-delay: 1s;
+}
+
+.toast.warn::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 5px;
+   background-color: var(--color-semantic-warn-400);
+   animation: progress-left 4s linear forwards;
+   animation-delay: 1s;
+}
+
+.toast.inform::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 5px;
+   background-color: var(--color-semantic-inform-400);
+   animation: progress-left 4s linear forwards;
+   animation-delay: 1s;
+}
+
+/************************* toast notification keyframes *************************/
+.move-in-from-right {
+   animation-name: move-in-from-right;
+   animation-duration: 1s;
+   animation-iteration-count: 1;
+   animation-timing-function: ease;
+}
+
+.exit-to-left {
+   animation-name: exit-to-left;
+   animation-duration: 1s;
+   animation-iteration-count: 1;
+   animation-timing-function: ease;
+   animation-fill-mode: forwards;
+}
+
+/*@keyframes move-in-from-right {
+   0% {
+      opacity: 0;
+      transform: translateX(2000px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}*/
+
+@keyframes move-in-from-right {
+   0% {
+      opacity: 0;
+      transform: translateX(2000px);
+   }
+   60% {
+      opacity: 1;
+      transform: translateX(-50px);
+   }
+   80% {
+      transform: translateX(10px);
+   }
+   100% {
+      transform: translateX(0);
+   }
+}
+
+@keyframes move-back-to-right {
+   0% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+   50% {
+      transform: translateX(-50px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(2000px);
+   }
+}
+
+@keyframes exit-to-left {
+   0% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+   50% {
+      transform: translateX(50px);
+   }
+   100% {
+      transform: translateX(-2000px);
+   }
+}
+
+@keyframes progress-left {
+   100% {
+      width: 0;
+   }
+}
+
+/*===============================================================
+          keyframes
+==================================================================*/
+/*@keyframes fade-out {
+   from {
+      opacity: 1;
+   }
+   to {
+      opacity: 0;
+   }
+}*/
 
 
 /*===============================================================
