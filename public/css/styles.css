@@ -2687,7 +2687,8 @@ textarea.has-content ~ label {
 }
 .footer-grid {
    display: grid;
-   grid-template-columns: 40% 16.67% 16.67% 16.67%;
+   /*grid-template-columns: 40% 16.67% 16.67% 16.67%;*/
+   grid-template-columns: 50% 15% 15% 15%;
    gap: 2.5rem;
    padding-bottom: 3rem;
    margin-bottom: 1em;
@@ -2704,6 +2705,108 @@ textarea.has-content ~ label {
 
 .mission-statement-paragraph {
    font-weight: 500;
-   text-align: center;
+   text-align: left;
    hyphens: auto;
+}
+
+.footer-navigation-list,
+.footer-contact-list {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 1em
+}
+
+.footer-navigation-link,
+.footer-contact-link,
+.footer-social-link {
+   font-weight: 500;
+   text-transform: capitalize;
+   color: var(--color-neutral-200);
+}
+
+.footer-navigation-link {
+   font-weight: 700;
+   text-transform: capitalize;
+   white-space: nowrap;
+   cursor: pointer;
+   transition: color 0.5s, transform 0.5s;
+}
+
+.footer-navigation-link:hover,
+.footer-navigation-link:focus,
+.footer-navigation-link:active {
+   color: var(--color-primary-600);
+}
+
+.footer-navigation-link.active {
+   color: var(--color-primary-600);
+   transform: scale(1.25);
+}
+
+.footer-contact-link i.fa-solid,
+.footer-social-link i.fa-brands {
+   font-size: 1rem;
+}
+
+.footer-contact-link,
+.footer-social-link {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 0.25em;
+   transition: color 0.5s, transform 0.5s;
+}
+
+.footer-contact-link:hover,
+.footer-contact-link:focus,
+.footer-social-link:hover,
+.footer-social-link:focus {
+   color: var(--color-primary-300);
+   transform: translateY(-2px);
+}
+
+.footer-social-list {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 0.7em;
+}
+
+.footer-social-link i.fa-brands {
+   font-size: 1rem;
+}
+
+
+.footer-bottom {
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+}
+.footer-bottom-color,
+a.footer-bottom-color{
+   font-size: 0.75rem;
+   color: var(--color-neutral-500);
+   transition: color 0.5s, transform 0.5s;
+}
+.terms-conditions:hover,
+.privacy:hover {
+   color: var(--color-augmented-100);
+   transform: scale(1.1);
+}
+
+@media screen and (max-width: 1100px) {
+   .footer-grid {
+      grid-template-columns: 66.667% 33.333%;
+      gap: 1.5rem;
+   }
+}
+
+@media screen and (max-width: 520px) {
+   .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+   }
 }

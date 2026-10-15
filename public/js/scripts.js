@@ -450,40 +450,7 @@ document.addEventListener('DOMContentLoaded', () => {
    messageInput.addEventListener('keyup', validateMessage);
    form.addEventListener('submit', validateForm);
 
-/*
-   const form = document.getElementById("contact-form");
-   const status = document.getElementById("form-status");
-
-   form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-
-      status.textContent = "Sending...";
-
-      const data = {
-         name: document.getElementById("name").value.trim(),
-         email: document.getElementById("email").value.trim(),
-         message: document.getElementById("message").value.trim(),
-      };
-
-      try {
-         const response = await fetch("/api/contact", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data),
-         });
-
-         const result = await response.json();
-
-         if (!response.ok) {
-            throw new Error(result.message);
-         }
-
-         status.textContent = result.message;
-         form.reset();
-      } catch (error) {
-         status.textContent = error.message || "Something went wrong.";
-      }
-   });*/
+   document.getElementById('copyright-year').textContent = new Date().getFullYear();
 
 
 });
