@@ -656,6 +656,12 @@ to 100%, max-width property to a pixel value of choice, and height to auto*/
    height: -webkit-fit-content;
    height: -moz-fit-content;
    height: fit-content;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   background-color: var(--color-primary-800);
+   color: var(--color-neutral-200);
 
 }
 
@@ -2673,3 +2679,31 @@ textarea.has-content ~ label {
 /*===============================================================
             footer section styles
 ==================================================================*/
+.footer-container {
+   display: flex;
+   flex-direction: column;
+
+   padding: 1.25rem 0;
+}
+.footer-grid {
+   display: grid;
+   grid-template-columns: 40% 16.67% 16.67% 16.67%;
+   gap: 2.5rem;
+   padding-bottom: 3rem;
+   margin-bottom: 1em;
+   border-bottom: 2px solid var(--color-neutral-500);
+}
+
+.footer-heading {
+   font-size: 1rem;
+   font-weight: 900;
+   text-align: center;
+   letter-spacing: var(--ls-letter-spacing-100);
+   margin: 1em 0 0.5em;
+}
+
+.mission-statement-paragraph {
+   font-weight: 500;
+   text-align: center;
+   hyphens: auto;
+}
