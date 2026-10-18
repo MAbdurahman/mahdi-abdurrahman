@@ -1010,17 +1010,18 @@ a[class^='outline-button'] {
    font-weight: var(--font-weight-semibold);
    text-transform: capitalize;
    letter-spacing: 1px;
-   color: var(--color-primary-800);
-   background: linear-gradient(90deg, var(--color-primary-700) 0%, var(--color-primary-700) 50%, transparent 50%, transparent 100%);
+   color: var(--color-primary-500);
+   background: linear-gradient(90deg, var(--color-primary-300) 0%, var(--color-primary-300) 50%, transparent 50%, transparent 100%);
    background-repeat: no-repeat;
    background-size: 200% 100%;
    background-position: right bottom;
    border-radius: var(--br-border-radius-200);
-   border: 2px solid var(--color-primary-700);
+   border: 2px solid var(--color-primary-500);
    cursor: pointer;
    outline: none;
    box-shadow: var(--bs-box-shadow-bottom-right-100);
-   transition: background-position 0.25s var(--tf-ease-in-out), color 0.5s var(--tf-ease-in-out);
+   transition: background-position 0.25s var(--tf-ease-in-out), color 0.5s var(--tf-ease-in-out),
+   border-color 0.5s var(--tf-ease-in-out);
 }
 
 button[class^='outline-button']:hover,
@@ -1029,6 +1030,7 @@ a[class^='outline-button']:hover,
 a[class^='outline-button']:focus-visible {
    cursor: pointer;
    color: var(--color-neutral-000);
+   border-color: var(--color-primary-300);
 }
 
 button[class^='outline-button']:hover,
