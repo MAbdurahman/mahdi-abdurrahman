@@ -57,9 +57,9 @@ app.post("/api/contact", async (req, res) => {
 
 transporter.verify((error, success) => {
    if (error) {
-      console.error("SMTP configuration error:", error);
+      console.error(`  ➔  SMTP Configuration Error: ${error}`);
    } else {
-      console.log("Email server is ready to send messages.");
+      console.log(`  ➔  Email Server:  Is ready to send messages!`);
    }
 });
 

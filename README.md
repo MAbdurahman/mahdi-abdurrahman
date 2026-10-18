@@ -9,6 +9,10 @@
 - Interactive CSS Animations
 - Interactive validation for contact form
 - Hover effects and transitions
+- Contact form sends messages to Gmail using Nodemailer and a serverless API route
+- Environment variables protect email configuration
+- Deployed on Vercel
+
 
 
 ### To Use
