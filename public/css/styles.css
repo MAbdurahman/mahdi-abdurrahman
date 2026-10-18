@@ -2699,9 +2699,10 @@ textarea.has-content ~ label {
 }
 
 .footer-heading {
-   font-size: 1rem;
+   font-size: 1.25rem;
    font-weight: 900;
    text-align: center;
+   text-transform: uppercase;
    letter-spacing: var(--ls-letter-spacing-100);
    margin: 1em 0 0.5em;
 }
@@ -2718,10 +2719,9 @@ textarea.has-content ~ label {
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   gap: 1em
+   gap: .75em
 }
 
-.footer-navigation-link,
 .footer-contact-link,
 .footer-social-link {
    font-weight: 500;
@@ -2729,23 +2729,35 @@ textarea.has-content ~ label {
    color: var(--color-neutral-200);
 }
 
+/*noinspection ALL*/
 .footer-navigation-link {
-   font-weight: 700;
-   text-transform: capitalize;
-   white-space: nowrap;
-   cursor: pointer;
-   transition: color 0.5s, transform 0.5s;
+   display: inline-block;
+   padding: 0.5em 1em;
+   font-family: var(--font-body);
+   font-size: 0.825rem;
+   font-weight: var(--font-weight-medium);
+   text-decoration: none;
+   text-transform: uppercase;
+   color: var(--color-neutral-200);
+   background: linear-gradient(90deg, transparent 0%, transparent 50%, var(--color-neutral-400) 50%, var(--color-neutral-400) 100%);
+   background-size: 200%;
+   border: 0;
+   border: none;
+   border-radius: var(--br-border-radius-200);
+   -webkit-transition: all .4s;
+   transition: all .4s;
 }
 
 .footer-navigation-link:hover,
 .footer-navigation-link:focus,
 .footer-navigation-link:active {
-   color: var(--color-primary-600);
+   color: var(--color-primary-800);
+   background-position: -100%;
 }
 
 .footer-navigation-link.active {
-   color: var(--color-primary-600);
-   transform: scale(1.25);
+   color: var(--color-primary-800);
+   background-position: -100%;
 }
 
 .footer-contact-link i.fa-solid,
@@ -2782,18 +2794,19 @@ textarea.has-content ~ label {
    font-size: 1rem;
 }
 
-
 .footer-bottom {
    display: flex;
    flex-direction: column;
    text-align: center;
 }
+
 .footer-bottom-color,
 a.footer-bottom-color{
-   font-size: 0.75rem;
+   font-size: 0.8rem;
    color: var(--color-neutral-500);
    transition: color 0.5s, transform 0.5s;
 }
+
 .terms-conditions:hover,
 .privacy:hover {
    color: var(--color-augmented-100);
