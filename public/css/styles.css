@@ -313,9 +313,7 @@ body {
 
 body.no-scroll {
    overflow: hidden;
-   height: 100vh;
 }
-
 
 /*===============================================================
        Typography Scale - 1.250 - Major Third
@@ -718,7 +716,7 @@ to 100%, max-width property to a pixel value of choice, and height to auto*/
    height: 50px;
    background-color: transparent;
    cursor: pointer;
-   z-index: 999;
+   z-index: 9990;
    -webkit-transition: -webkit-transform 0.35s var(--tf-ease-in-out);
    transition: transform 0.35s var(--tf-ease-in-out);
 }
@@ -796,8 +794,8 @@ to 100%, max-width property to a pixel value of choice, and height to auto*/
    height: 100%;
    width: 0;
    background: var(--color-primary-800);
-   -webkit-transition: all 0.275s linear;
-   transition: all 0.275s linear;
+   -webkit-transition: width 0.275s linear;
+   transition: width 0.275s linear;
 }
 
 .navigation-background.active {
@@ -896,8 +894,8 @@ to 100%, max-width property to a pixel value of choice, and height to auto*/
    border: 0;
    border: none;
    border-radius: 5px;
-   -webkit-transition: all .4s;
-   transition: all .4s;
+   -webkit-transition: all .4s var(--tf-ease);
+   transition: all .4s var(--tf-ease);
 }
 
 

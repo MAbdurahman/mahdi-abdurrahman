@@ -43,52 +43,50 @@
          id='preloader-gif' src='./img/gifs/preloader.gif'>
 </div>
 <!-- navigation -->
-<div class='navigation' id='navigation'>
-    <div class='navigation-button' id='navigation-button'>
-        <span class='navigation-button-bar'></span>
-        <span class='navigation-button-bar'></span>
-        <span class='navigation-button-bar'></span>
-    </div>
-    <nav class='navigation-background' id='navigation-background'>
-        <div class='navigation-background-inner'>
-            <ul class='navigation-list' id='navigation-list'>
-                <li class='navigation-item'>
-                    <a class='navigation-link active' href='#home'>
-                    <span class='navigation-span'>
-                        <i class='fas fa-home'></i>
-                    </span>
+<div class="navigation" id="navigation">
+    <button
+            class="navigation-button"
+            id="navigation-button"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="navigation-list"
+    >
+        <span class="navigation-button-bar"></span>
+        <span class="navigation-button-bar"></span>
+        <span class="navigation-button-bar"></span>
+    </button>
+    
+    <nav class="navigation-background" id="navigation-background">
+        <div class="navigation-background-inner">
+            <ul class="navigation-list" id="navigation-list">
+                <li class="navigation-item">
+                    <a class="navigation-link active" href="#home" aria-current="location">
+                        <span class="navigation-span"><i class="fas fa-home"></i></span>
                         home
                     </a>
                 </li>
-                <li class='navigation-item'>
-                    <a class='navigation-link' href='#about'>
-                        <span class='navigation-span'>
-                            <i class='fas fa-user-tie'></i>
-                        </span>
+                <li class="navigation-item">
+                    <a class="navigation-link" href="#about">
+                        <span class="navigation-span"><i class="fas fa-user-tie"></i></span>
                         about me
                     </a>
                 </li>
-                <li class='navigation-item'>
-                    <a class='navigation-link' href='#skills'>
-                        <span class='navigation-span'>
-                            <i class='fas fa-tools'></i>
-                        </span>
+                <li class="navigation-item">
+                    <a class="navigation-link" href="#skills">
+                        <span class="navigation-span"><i class="fas fa-tools"></i></span>
                         my skills
                     </a>
                 </li>
-                <li class='navigation-item'>
-                    <a class='navigation-link' href='#portfolio'>
-                        <span class='navigation-span'>
-                            <i class='fas fa-images'></i>
-                        </span>
+                <li class="navigation-item">
+                    <a class="navigation-link" href="#portfolio">
+                        <span class="navigation-span"><i class="fas fa-images"></i></span>
                         portfolio
                     </a>
                 </li>
-                <li class='navigation-item'>
-                    <a class='navigation-link' href='#contact'>
-                        <span class='navigation-span'>
-                            <i class='fas fa-envelope'></i>
-                        </span>
+                <li class="navigation-item">
+                    <a class="navigation-link" href="#contact">
+                        <span class="navigation-span"><i class="fas fa-envelope"></i></span>
                         contact me
                     </a>
                 </li>
@@ -96,6 +94,7 @@
         </div>
     </nav>
 </div>
+
 <!-- header -->
 <header class='header' id='home'>
     <div class='header-logo-container'>

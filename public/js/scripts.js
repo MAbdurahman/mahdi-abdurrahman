@@ -19,48 +19,136 @@ window.addEventListener('load', () => {
 /*===============================================================
           navigation and footer navigation
 ==================================================================*/
-document.addEventListener('DOMContentLoaded', () => {
-   console.log('DOMContentLoaded loaded for navigation scripts!');
+document.addEventListener("DOMContentLoaded", () => {
+   console.log('DOMContentLoaded is loaded for navigation scripts!');
 
-   const navigationButton = document.getElementById('navigation-button');
-   const navigationBackground = document.getElementById('navigation-background');
-   const navigationList = document.getElementById('navigation-list');
-   const navigationItems = document.querySelectorAll('.navigation-item');
+   const navigationButton = document.getElementById("navigation-button");
+   const navigationBackground = document.getElementById("navigation-background");
+   const navigationList = document.getElementById("navigation-list");
 
+   const navLinks = [
+      ...document.querySelectorAll(
+         ".navigation-link, .footer-navigation-link"
+      ),
+   ];
 
-   navigationButton.addEventListener('click', toggleNavigation);
+   // Use the actual targets referenced by the navigation links.
+   const sections = [
+      ...new Set(
+         navLinks
+            .map((link) => {
+               try {
+                  return document.querySelector(link.hash);
+               } catch {
+                  return null;
+               }
+            })
+            .filter(Boolean)
+      ),
+   ].sort((a, b) => {
+      if (a === b) return 0;
 
-   navigationList.addEventListener('click', closeNavigation);
+      const position = a.compareDocumentPosition(b);
+      return position & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+   });
 
-   navigationBackground.addEventListener('click', (event) => {
+   if (!navigationButton || !navigationBackground || !navigationList) {
+      console.error("Navigation elements are missing.");
+      return;
+   }
+
+   function setMenuOpen(isOpen) {
+      navigationButton.classList.toggle("active", isOpen);
+      navigationBackground.classList.toggle("active", isOpen);
+      navigationList.classList.toggle("active", isOpen);
+      document.body.classList.toggle("no-scroll", isOpen);
+
+      navigationButton.setAttribute("aria-expanded", String(isOpen));
+      navigationButton.setAttribute(
+         "aria-label",
+         isOpen ? "Close navigation" : "Open navigation"
+      );
+   }
+
+   function setActiveLink(sectionId) {
+      navLinks.forEach((link) => {
+         const isActive = link.hash === `#${sectionId}`;
+
+         link.classList.toggle("active", isActive);
+
+         if (isActive) {
+            link.setAttribute("aria-current", "location");
+         } else {
+            link.removeAttribute("aria-current");
+         }
+      });
+   }
+
+   // The button only opens or closes the menu. It never navigates.
+   navigationButton.addEventListener("click", () => {
+      const isOpen = navigationList.classList.contains("active");
+      setMenuOpen(!isOpen);
+   });
+
+   // Close the menu if the user clicks outside the list.
+   navigationBackground.addEventListener("click", (event) => {
       if (event.target === navigationBackground) {
-         closeNavigation();
+         setMenuOpen(false);
       }
    });
 
+   // A link click closes the menu and scrolls to that link's target.
+   navLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+         const target = sections.find(
+            (section) => `#${section.id}` === link.hash
+         );
 
-   navigationItems.forEach(navigationItem => {
-      navigationItem.addEventListener('click', () => {
-         closeNavigation();
+         if (!target) return;
+
+         event.preventDefault();
+         setMenuOpen(false);
+
+         requestAnimationFrame(() => {
+            target.scrollIntoView({
+               behavior: "smooth",
+               block: "start",
+            });
+
+            history.replaceState(null, "", link.hash);
+            setActiveLink(target.id);
+         });
       });
    });
 
-   function toggleNavigation() {
-      navigationButton.classList.toggle('active');
-      navigationBackground.classList.toggle('active');
-      navigationList.classList.toggle('active');
-      document.body.classList.toggle('no-scroll');    // lock scrolling
+   // Set the active link based on the section nearest the activation line.
+   function updateActiveLink() {
+      if (sections.length === 0) return;
+
+      const activationPoint = window.innerHeight * 0.35;
+      let currentSection = sections[0];
+
+      for (const section of sections) {
+         if (section.getBoundingClientRect().top <= activationPoint) {
+            currentSection = section;
+         } else {
+            break;
+         }
+      }
+
+      setActiveLink(currentSection.id);
    }
 
-   function closeNavigation() {
-      navigationButton.classList.remove('active');
-      navigationBackground.classList.remove('active');
-      navigationList.classList.remove('active');
-      document.body.classList.remove('no-scroll');
-   }
+   window.addEventListener("scroll", updateActiveLink, { passive: true });
+   window.addEventListener("resize", updateActiveLink);
 
-
+   // Set the correct initial link on page load.
+   updateActiveLink();
 });
+
+
+
+
 
 /*===============================================================
           progress-bars scripts
