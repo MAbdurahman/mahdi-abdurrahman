@@ -32,3 +32,5 @@ Clone or Download the repository
 `npm run build or yarn build
 
 #### [Live preview](https://mahdi-abdurrahman.vercel.app/)
+
+<img width="700" height="328" alt="Image" src="https://github.com/user-attachments/assets/7490e166-c9b8-42dc-acf9-24383a8a7fb2" />
