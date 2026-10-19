@@ -611,7 +611,7 @@ to 100%, max-width property to a pixel value of choice, and height to auto*/
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   padding: 120px 0;
+   padding: 40px 0;
    background-color: var(--color-augmented-000);
 
 }
@@ -621,7 +621,7 @@ to 100%, max-width property to a pixel value of choice, and height to auto*/
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   padding: 120px 0;
+   padding: 40px 0;
    background-color: var(--color-neutral-000);
 }
 
@@ -636,7 +636,7 @@ to 100%, max-width property to a pixel value of choice, and height to auto*/
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   padding: 120px 0;
+   padding: 40px 0;
    background-color: var(--color-neutral-200);
 }
 
@@ -645,7 +645,7 @@ to 100%, max-width property to a pixel value of choice, and height to auto*/
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   padding: 120px 0;
+   padding: 40px 0;
    background-color: var(--color-augmented-000);
 }
 
@@ -708,7 +708,8 @@ to 100%, max-width property to a pixel value of choice, and height to auto*/
 /*===============================================================
           navigation styles
 ==================================================================*/
-.navigation-button {
+
+button[class^=navigation-button] {
    position: fixed;
    top: 3%;
    right: 3%;
@@ -717,11 +718,13 @@ to 100%, max-width property to a pixel value of choice, and height to auto*/
    background-color: transparent;
    cursor: pointer;
    z-index: 9990;
+   border: none;
+   outline: 0;
    -webkit-transition: -webkit-transform 0.35s var(--tf-ease-in-out);
    transition: transform 0.35s var(--tf-ease-in-out);
 }
 
-.navigation-button:hover {
+button[class^=navigation-button]:hover {
    -webkit-transform: scale(1.1);
    transform: scale(1.1);
 }
@@ -761,26 +764,30 @@ to 100%, max-width property to a pixel value of choice, and height to auto*/
    margin-right: auto;
 }
 
-.navigation-button.active .navigation-button-bar:nth-child(1) {
+
+button[class^=navigation-button].active .navigation-button-bar:nth-child(1) {
    -webkit-transform: rotate(45deg);
    transform: rotate(45deg);
    top: 48%;
 }
 
-.navigation-button.active .navigation-button-bar:nth-child(2) {
+
+button[class^=navigation-button].active .navigation-button-bar:nth-child(2) {
    -webkit-transform: translateX(100%);
    transform: translateX(100%);
    opacity: 0;
 }
 
-.navigation-button.active .navigation-button-bar:nth-child(3) {
+
+button[class^=navigation-button].active .navigation-button-bar:nth-child(3) {
    -webkit-transform: rotate(-45deg);
    transform: rotate(-45deg);
    top: 48%;
 }
 
 @media screen and (max-width: 1024px) {
-   .navigation-button {
+
+   button[class^=navigation-button] {
       top: 3%;
       right: 5%;
    }
