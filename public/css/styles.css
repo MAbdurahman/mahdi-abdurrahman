@@ -1516,8 +1516,8 @@ p.about-info-text:where(:last-of-type) {
 
 .skills-section-content {
    position: relative;
-   min-width: 100%;
-   min-height: 20%;
+   /*min-width: 100%;
+   min-height: 20%;*/
    display: grid;
    grid-template-columns: repeat(2, 1fr);
    column-gap: 2em;
@@ -1611,19 +1611,23 @@ p.about-info-text:where(:last-of-type) {
 .accordion .content {
    overflow: hidden;
    height: 0;
-   background: var(--color-neutral-000);
+   background-color: var(--color-augmented-000);
    box-shadow: var(--bs-box-shadow-bottom-right-600);
    border-bottom-left-radius: var(--br-border-radius-200);
    border-bottom-right-radius: var(--br-border-radius-200);
    transition: 0.5s;
 }
 
-.accordion > input[name=collapse]:checked ~ .content p {
+.accordion > input[name=collapse]:checked ~ .content .para {
    height: 192px;
+   width: min(72ch, 100%);
    padding: 8px 16px;
-   font-size: 0.667rem;
+   /*margin-right: auto;
+   margin-left: auto;*/
+   margin-inline: auto;
+   font-size: var(--fluid-body-text-p100);
    /*font-size: ab.set-fluid-body-text(fbt-fluid-body-text-p6);*/
-   font-weight: var(--font-weight-normal);
+   font-weight: var(--font-weight-medium);
    text-align: left;
    text-transform: none;
    line-height: 1.5;
@@ -1631,12 +1635,33 @@ p.about-info-text:where(:last-of-type) {
    hyphens: auto;
    color: var(--color-augmented-900);
    background-color: var(--color-augmented-000);
-   transition: height 0.5s;
+   transition: height 0.5s, padding 0.5s;
 
 }
 
+.accordion .content .para {
+   height: 0;
+   overflow: hidden;
+   width: min(72ch, 100%);
+   box-sizing: border-box;
+   margin-inline: auto;
+   padding: 0 16px;
+   font-size: var(--fluid-body-text-p100);
+   font-weight: var(--font-weight-normal);
+   line-height: 1.5;
+   transition: height 0.5s, padding 0.5s;
+}
+
+.accordion > input[name="collapse"]:checked ~ .content .para {
+   height: 192px;
+   padding: 8px 16px;
+}
+
+
+
+
 @media screen and (max-width: 1199px) {
-   .accordion > input[name=collapse]:checked ~ .content p {
+   .accordion > input[name=collapse]:checked ~ .content .para {
       height: 104px;
    }
 }
@@ -1732,6 +1757,7 @@ p.about-info-text:where(:last-of-type) {
    transform-origin: center;
    transition: 0.4s;
 }
+
 
 /************************* progress bars *************************/
 .progress-bars {
