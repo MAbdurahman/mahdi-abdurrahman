@@ -640,6 +640,12 @@ to 100%, max-width property to a pixel value of choice, and height to auto*/
    background-color: var(--color-neutral-200);
 }
 
+@media screen and (max-width: 920px) {
+   .section--four {
+      padding: 40px 0 128px;
+   }
+}
+
 .section--five {
    display: flex;
    flex-direction: column;
@@ -1459,7 +1465,7 @@ a[class^='outline-button--white']:hover {
 
 .about-info-text {
    font-size: var(--fluid-body-text-p300);
-   font-weight: var(--font-weight-normal);
+   font-weight: 500;
    hyphens: auto;
 }
 
@@ -1601,12 +1607,35 @@ p.about-info-text:where(:last-of-type) {
    margin: 0 auto;
 }
 
+/*@media screen and (max-width: 1199px) {
+   .accordion label,
+   .accordion .content {
+      max-width: 100%;
+   }
+}*/
+
 @media screen and (max-width: 1199px) {
    .accordion label,
    .accordion .content {
       max-width: 100%;
    }
+
+   .accordion .content .para {
+      margin-inline: 0;
+      text-align: left;
+   }
 }
+
+@media screen and (max-width: 1199px) {
+   .accordion .content .para {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 16px;
+      padding-right: 16px;
+      text-align: left;
+   }
+}
+
 
 .accordion .content {
    overflow: hidden;
@@ -1666,8 +1695,36 @@ p.about-info-text:where(:last-of-type) {
    }
 }
 
+/*@media (max-width: 768px) {
+   .content .para {
+      margin-left: 0;
+      margin-right: 0;
+      text-align: left;
+   }
+}*/
+
+@media screen and (max-width: 768px) {
+   .accordion > input[name=collapse]:checked ~ .content .para {
+      width: auto;
+      font-size: 1.25rem;
+
+   }
+
+   .accordion .content .para {
+      width: auto;
+      font-size: 1.125rem;
+
+   }
+}
+
+
 .accordion label {
    display: block;
+
+}
+
+
+@media screen and (max-width: 768px) {
 
 }
 
@@ -1684,6 +1741,17 @@ p.about-info-text:where(:last-of-type) {
       height: 104px;
    }
 }
+
+@media only screen and (max-width: 768px) {
+   .accordion > input[name=collapse]:checked ~ .content {
+      height: 96px;
+   }
+
+   .accordion .content .para {
+      height: 96px;
+   }
+}
+
 
 .accordion {
    margin-bottom: 1em;
@@ -2249,6 +2317,46 @@ p.about-info-text:where(:last-of-type) {
    border: 2px solid var(--color-primary-300);
    background: var(--color-primary-300);
    outline: none;
+}
+
+
+@media (max-width: 820px) {
+   #filtr-container {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 1.5em;
+   }
+
+   .portfolio-card {
+      display: flex;
+      flex-direction: column;
+   }
+
+   .portfolio-card-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+   }
+
+   .portfolio-card-caption {
+      line-height: 1.5;
+      min-height: 7.5em; /* Space for five lines */
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 5;
+      overflow: hidden;
+   }
+
+   .portfolio-card-buttons {
+      margin-top: auto;
+   }
+}
+
+@media (max-width: 540px) {
+   #filtr-container {
+      grid-template-columns: 1fr;
+   }
 }
 
 
