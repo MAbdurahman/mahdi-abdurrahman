@@ -2568,6 +2568,18 @@ textarea.utils-effect-07 ~ .focus-background-07 {
    color 0.3s var(--tf-ease), top 0.3s var(--tf-ease);
 }
 
+@media screen and (max-width: 540px) {
+   .utils-effect-07 ~ label {
+      font-size: 12px;
+   }
+
+   .utils-effect-07:focus ~ label,
+   .utils-effect-07.has-content ~ label {
+      font-size: 10px;
+   }
+
+}
+
 .utils-effect-07 ~ label {
    pointer-events: none;
 }
