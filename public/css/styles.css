@@ -839,6 +839,11 @@ button[class^=navigation-button].active .navigation-button-bar:nth-child(3) {
    place-content: center;
    list-style: none;
    text-align: center;
+   pointer-events: none;
+}
+
+.navigation-list.active {
+   pointer-events: auto;
 }
 
 .navigation-item {
@@ -847,14 +852,16 @@ button[class^=navigation-button].active .navigation-button-bar:nth-child(3) {
    border: none;
    border-radius: 5px;
    opacity: 0;
+   pointer-events: none;
    -webkit-transition: all 0.35s var(--tf-ease-basic-01);
    transition: all 0.35s var(--tf-ease-basic-01);
 }
 
 .navigation-list.active .navigation-item {
    margin: 0.5rem;
-   -webkit-animation-name: lively-slide-in-right;
-   animation-name: lively-slide-in-right;
+   pointer-events: auto;
+   -webkit-animation-name: lively-slide-in-from-right;
+   animation-name: lively-slide-in-from-right;
    -webkit-animation-duration: 0.8s;
    animation-duration: 0.8s;
    -webkit-animation-timing-function: linear;
@@ -947,7 +954,7 @@ button[class^=navigation-button].active .navigation-button-bar:nth-child(3) {
 
 /************************* navigation keyframes *************************/
 
-@keyframes lively-slide-in-right {
+@keyframes lively-slide-in-from-right {
    0% {
       transform: translateX(120%);
       opacity: 0;
