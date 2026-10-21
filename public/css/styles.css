@@ -636,7 +636,7 @@ to 100%, max-width property to a pixel value of choice, and height to auto*/
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   padding: 40px 0;
+   padding: 40px 0 60px;
    background-color: var(--color-neutral-200);
 }
 
@@ -2022,7 +2022,7 @@ p.about-info-text:where(:last-of-type) {
    display: flex;
    flex-direction: column;
    justify-content: center;
-   gap: 3em;
+   gap: 0.75em;
 }
 
 
@@ -2189,15 +2189,6 @@ p.about-info-text:where(:last-of-type) {
       width: 100%;
    }
 }
-
-/*
-.portfolio-card-image img {
-   display: block;
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-   transition: transform 350ms ease;
-}*/
 
 .feature-badge {
    position: absolute;
