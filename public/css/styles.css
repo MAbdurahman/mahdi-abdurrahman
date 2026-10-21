@@ -2078,7 +2078,6 @@ p.about-info-text:where(:last-of-type) {
    display: flex;
    justify-content: space-between;
    align-items: center;
-
 }
 
 /*noinspection ALL*/
@@ -2126,7 +2125,7 @@ p.about-info-text:where(:last-of-type) {
    margin-right: 16px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 360px) {
    .portfolio-filter-button:not(:last-child) {
       margin-right: 8px;
    }
@@ -2210,6 +2209,7 @@ p.about-info-text:where(:last-of-type) {
    border-radius: 8px;
    font-size: 0.75rem;
    font-weight: 800;
+   letter-spacing: var(--ls-letter-spacing-100);
 }
 
 .portfolio-card-content {
