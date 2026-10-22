@@ -1504,8 +1504,6 @@ p.about-info-text:where(:last-of-type) {
 
 .skills-section-content {
    position: relative;
-   /*min-width: 100%;
-   min-height: 20%;*/
    display: grid;
    grid-template-columns: repeat(2, 1fr);
    column-gap: 2em;
@@ -1753,7 +1751,6 @@ p.about-info-text:where(:last-of-type) {
    transition: 0.4s;
 }
 
-
 /************************* progress bars *************************/
 .progress-bars {
    width: 100%;
@@ -1919,7 +1916,6 @@ p.about-info-text:where(:last-of-type) {
       transition: none;
    }
 }
-
 
 /*===============================================================
            portfolio section styles
@@ -2259,20 +2255,11 @@ p.about-info-text:where(:last-of-type) {
    border-color: var(--color-augmented-700);
 }
 
-/*@media (width: 1024px) {
-   .portfolio-card-caption {
-      min-height: calc(3em + 1px); !* replace 3em with its current min-height *!
-
-   }
-}*/
-
-
 @media (max-width: 540px) {
    #filtr-container {
       grid-template-columns: 1fr;
    }
 }
-
 
 /*===============================================================
             contact section styles
@@ -2754,7 +2741,6 @@ textarea.has-content ~ label {
 }
 .footer-grid {
    display: grid;
-   /*grid-template-columns: 40% 16.67% 16.67% 16.67%;*/
    grid-template-columns: 50% 15% 15% 15%;
    gap: 2.5rem;
    padding-bottom: 3rem;

@@ -20,7 +20,6 @@ window.addEventListener('load', () => {
           navigation and footer navigation
 ==================================================================*/
 document.addEventListener("DOMContentLoaded", () => {
-   console.log('DOMContentLoaded is loaded for navigation scripts!');
 
    const navigationButton = document.getElementById("navigation-button");
    const navigationBackground = document.getElementById("navigation-background");
@@ -146,15 +145,10 @@ document.addEventListener("DOMContentLoaded", () => {
    updateActiveLink();
 });
 
-
-
-
-
 /*===============================================================
           progress-bars scripts
 ==================================================================*/
 document.addEventListener("DOMContentLoaded", function () {
-   console.log("DOMContentLoaded has loaded for skills section!");
 
    const progressSection = document.querySelector("#progress-bars");
    const progressBars = document.querySelectorAll(".progress-bar");
@@ -212,14 +206,12 @@ document.addEventListener("DOMContentLoaded", function () {
       observer.observe(progressSection);
    }
 
-
 });
 
 /*===============================================================
           portfolio section scripts
 ==================================================================*/
 document.addEventListener('DOMContentLoaded', () => {
-   console.log("DOMContentLoaded has loaded for portfolio section!");
 
    const filterButtons = document.querySelectorAll('.portfolio-filter-button');
 
@@ -253,12 +245,10 @@ $('#filtr-container').filterizr({});
 
 });
 
-
 /*===============================================================
           contact form scripts
 ==================================================================*/
 document.addEventListener('DOMContentLoaded', () => {
-   console.log('DOMContentLoaded has loaded for contact section!');
 
    /************************* contact section paragraph *************************/
    $('#contact-section-paragraph').waypoint(function () {
@@ -504,7 +494,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
    }
 
-
    function validateForm(event) {
       event.preventDefault();
 
@@ -532,13 +521,11 @@ document.addEventListener('DOMContentLoaded', () => {
       performValidForm();
    }
 
-
    nameInput.addEventListener('keyup', validateName);
    emailInput.addEventListener('keyup', validateEmail);
    messageInput.addEventListener('keyup', validateMessage);
    form.addEventListener('submit', validateForm);
 
    document.getElementById('copyright-year').textContent = new Date().getFullYear();
-
 
 });
