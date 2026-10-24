@@ -1010,6 +1010,13 @@ input[class^='primary-button']:hover,
 a[class^='primary-button']:hover {
    background-position: left bottom;
 }
+@media screen and (max-width: 520px) {
+   button[class^='primary-button'],
+   input[class^='primary-button'],
+   a[class^='primary-button'] {
+      font-size: 1.125rem;
+   }
+}
 
 /************************ outline-button styles ************************/
 /*noinspection ALL*/
@@ -1051,6 +1058,13 @@ a[class^='outline-button']:hover {
    background-position: left bottom;
 }
 
+@media screen and (max-width: 520px) {
+   button[class^='outline-button'],
+   a[class^='outline-button'] {
+      font-size: 1.125rem;
+   }
+}
+
 /************************ outline-button--white styles ************************/
 /*noinspection ALL*/
 button[class^='outline-button--white'],
@@ -1090,6 +1104,13 @@ a[class^='outline-button--white']:hover {
    background-position: left bottom;
 }
 
+@media screen and (max-width: 520px) {
+   button[class^='outline-button--white'],
+   a[class^='outline-button--white'] {
+      font-size: 1.125rem;
+   }
+}
+
 /*===============================================================
           header styles
 ==================================================================*/
@@ -1115,7 +1136,9 @@ a[class^='outline-button--white']:hover {
 
 @media screen and (max-width: 540px) {
    .header-logo {
-      height: 6rem;
+      /*height: 6rem;*/
+      width: 80px;
+      height: auto;
    }
 }
 
@@ -1572,6 +1595,11 @@ p.about-info-text:where(:last-of-type) {
 
 .handle {
    font-size: 1.0125rem;
+}
+@media screen and (max-width: 520px) {
+   .handle {
+      font-size: 1.25rem;
+   }
 }
 
 .accordion label,
@@ -2318,6 +2346,11 @@ p.about-info-text:where(:last-of-type) {
 
    }
 }
+@media screen and (max-width: 520px) {
+   .contact-paragraph {
+      font-size: 1.25rem;
+   }
+}
 
 /************************* contact-section--lower *************************/
 .contact-section--lower {
@@ -2736,7 +2769,6 @@ textarea.has-content ~ label {
 .footer-container {
    display: flex;
    flex-direction: column;
-
    padding: 1.25rem 0;
 }
 .footer-grid {
@@ -2755,6 +2787,12 @@ textarea.has-content ~ label {
    text-transform: uppercase;
    letter-spacing: var(--ls-letter-spacing-100);
    margin: 1em 0 0.5em;
+}
+
+@media screen and (max-width: 520px) {
+   .footer-heading {
+      font-size: 1.5rem;
+   }
 }
 
 .mission-statement-paragraph {
@@ -2874,5 +2912,11 @@ a.footer-bottom-color{
    .footer-grid {
       grid-template-columns: 1fr;
       gap: 2rem;
+   }
+   .mission-statement-paragraph,
+   .footer-navigation-link,
+   .footer-contact-link ,
+   .footer-social-link {
+      font-size: 1.25rem;
    }
 }
