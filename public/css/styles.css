@@ -1110,12 +1110,12 @@ a[class^='outline-button--white']:hover {
 }
 
 .header-logo {
-   height: 5rem;
+   height: 7rem;
 }
 
 @media screen and (max-width: 540px) {
    .header-logo {
-      height: 4rem;
+      height: 6rem;
    }
 }
 
