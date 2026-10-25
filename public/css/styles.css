@@ -2919,4 +2919,10 @@ a.footer-bottom-color{
    .footer-social-link {
       font-size: 1.25rem;
    }
+
+   .privacy,
+   .copyright,
+   .terms-conditions{
+      font-size: 1rem;
+   }
 }
