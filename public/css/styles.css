@@ -2832,6 +2832,7 @@ textarea.has-content ~ label {
    border: 0;
    border: none;
    border-radius: var(--br-border-radius-200);
+   cursor: pointer;
    -webkit-transition: all .4s;
    transition: all .4s;
 }
